@@ -10,11 +10,17 @@ public class Boundary
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed;
     public float tilt;
     public Boundary boundary;
-
     private Rigidbody rig;
+
+    [Header("Shooting")]
+    public GameObject shot;
+    public Transform shotSpawn;
+    public float fireRate;
+    private float nextFire;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +29,15 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, Quaternion.identity);
+        }
+    }
+
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
