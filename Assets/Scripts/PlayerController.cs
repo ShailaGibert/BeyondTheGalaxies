@@ -11,6 +11,7 @@ public class Boundary
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public float tilt;
     public Boundary boundary;
 
     private Rigidbody rig;
@@ -30,6 +31,6 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
         rig.velocity = movement * speed;
         rig.position = new Vector3(Mathf.Clamp(rig.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp(rig.position.y, boundary.yMin, boundary.yMax), 0f);
-        rig.rotation = Quaternion.Euler(90, 180, rig.velocity.x);
+        rig.rotation = Quaternion.Euler(90, 180, rig.velocity.x * tilt);
     }
 }
