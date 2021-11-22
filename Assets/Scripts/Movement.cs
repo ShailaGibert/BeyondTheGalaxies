@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoltMovement : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     public float speed;
 
