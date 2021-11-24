@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EvasiveManeuver : MonoBehaviour
+public class LuminarisEvasiveManeuver : MonoBehaviour
 {
     public float dodge;     // Velocidad máxima de la maniobra evasiva
     public float smoothing;
@@ -39,7 +39,7 @@ public class EvasiveManeuver : MonoBehaviour
     IEnumerator Evade()
     {
         yield return new WaitForSeconds(Random.Range(startWait.x, startWait.y));
-        
+
         while (true)
         {
             targetManeuver = Random.Range(1, dodge) * -Mathf.Sign(transform.position.x);
@@ -52,8 +52,8 @@ public class EvasiveManeuver : MonoBehaviour
     void FixedUpdate()
     {
         float newManeuver = Mathf.MoveTowards(rb.velocity.x, targetManeuver, Time.deltaTime * smoothing);
-        rb.velocity = new Vector3(newManeuver, 0.0f, rb.velocity.z);
-        rb.position = new Vector3(Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax), 0f);
-        rb.rotation = Quaternion.Euler(90, 180, rb.velocity.x * tilt);
+        rb.velocity = new Vector3(newManeuver, rb.velocity.y, rb.velocity.z);
+        //rb.position = new Vector3(Mathf.Clamp(rb.position.x, boundary.xMin, boundary.xMax), Mathf.Clamp(rb.position.y, boundary.yMin, boundary.yMax), 0f);
+        rb.rotation = Quaternion.Euler(0, rb.velocity.x * -tilt, 0);
     }
 }

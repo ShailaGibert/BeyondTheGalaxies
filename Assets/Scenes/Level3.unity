@@ -137,12 +137,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 133972877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b98897711d2d353469b9e491f333a930, type: 3}
+  m_Script: {fileID: 11500000, guid: 795a68a35b9f5b54f9c46f8ce6fe5c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWait: {x: 0.5, y: 1}
   dodge: 5
   smoothing: 75
+  startWait: {x: 0.5, y: 0.5}
+  maneuverTime: {x: 0.5, y: 0.5}
+  maneuverWait: {x: 1, y: 1.5}
+  boundary:
+    xMin: 0
+    xMax: 0
+    yMin: 0
+    yMax: 0
+  tilt: 5
+--- !u!114 &133972879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133972877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d29995bdc14e13b4db989bbaa94bea8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -1
 --- !u!1 &393567418
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +906,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1480213056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1480213057}
+  - component: {fileID: 1480213058}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1480213057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480213056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1480213058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480213056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00dd62b75bedcbe4f8968100c3cb1481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazard: {fileID: 7894578620307578565, guid: 299c956223d6946449570ac67be8c448, type: 3}
+  spawnValues: {x: 6.5, y: 11, z: 0}
 --- !u!1 &1610415969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7894578620307578566, guid: 299c956223d6946449570ac67be8c448, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.5
+      value: 7.24
       objectReference: {fileID: 0}
     - target: {fileID: 7894578620307578566, guid: 299c956223d6946449570ac67be8c448, type: 3}
       propertyPath: m_LocalPosition.z

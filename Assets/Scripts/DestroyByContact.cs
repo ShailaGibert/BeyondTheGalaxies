@@ -12,6 +12,7 @@ public class DestroyByContact : MonoBehaviour
         if (other.CompareTag("Boundary")) return;
 
         Instantiate(enemyExplosion, transform.position, transform.rotation);
+        
         if(other.CompareTag("Player"))
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
