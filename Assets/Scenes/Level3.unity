@@ -881,7 +881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1480213057
 Transform:
   m_ObjectHideFlags: 0
@@ -905,11 +905,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1480213056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00dd62b75bedcbe4f8968100c3cb1481, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c621505d80cf364982bc0f073f53e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazard: {fileID: 7894578620307578565, guid: 299c956223d6946449570ac67be8c448, type: 3}
-  spawnValues: {x: 6.5, y: 11, z: 0}
+  hazard: {fileID: 292758132962571715, guid: 299c956223d6946449570ac67be8c448, type: 3}
 --- !u!1 &1610415969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,9 +1072,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 292758132962571712, guid: 299c956223d6946449570ac67be8c448, type: 3}
+      propertyPath: maneuverTime.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 292758132962571715, guid: 299c956223d6946449570ac67be8c448, type: 3}
       propertyPath: m_Name
       value: EnemyShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 292758132962571715, guid: 299c956223d6946449570ac67be8c448, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 292758132962571741, guid: 299c956223d6946449570ac67be8c448, type: 3}
       propertyPath: m_RootOrder

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Level3GameController : MonoBehaviour
 {
+    public GameObject hazard;
+
     // Start is called before the first frame update
     void Start()
     {
