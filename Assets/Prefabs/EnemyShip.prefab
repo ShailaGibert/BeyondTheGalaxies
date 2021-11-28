@@ -145,7 +145,7 @@ CapsuleCollider:
   m_Enabled: 1
   m_Radius: 2.02
   m_Height: 8.35
-  m_Direction: 1
+  m_Direction: 2
   m_Center: {x: 0, y: -0.75, z: 0}
 --- !u!114 &292758132962571742
 MonoBehaviour:
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyExplosion: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
-  playerExplosion: {fileID: 100006, guid: 28ccd38a41e256a4e8fea96f5a8d039d, type: 3}
+  playerExplosion: {fileID: 100006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
 --- !u!114 &292758132962571712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,13 +176,13 @@ MonoBehaviour:
   dodge: 5
   smoothing: 75
   startWait: {x: 0.5, y: 0.5}
-  maneuverTime: {x: 0.5, y: 0.5}
+  maneuverTime: {x: 0.5, y: 1.5}
   maneuverWait: {x: 1, y: 1.5}
   boundary:
     xMin: 0
     xMax: 0
-    yMin: 0
-    yMax: 0
+    zMin: 0
+    zMax: 0
   tilt: 5
 --- !u!114 &292758132962571713
 MonoBehaviour:
@@ -629,7 +629,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292758134093426825}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -641,7 +641,7 @@ Transform:
   - {fileID: 292758133875602289}
   m_Father: {fileID: 292758132962571741}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &292758134093426818
 MeshFilter:
   m_ObjectHideFlags: 0

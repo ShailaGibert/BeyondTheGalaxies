@@ -16,6 +16,6 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rig.velocity = transform.up * speed;
+        rig.velocity = transform.forward * speed;
     }
 }
