@@ -173,11 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795a68a35b9f5b54f9c46f8ce6fe5c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dodge: 5
+  dodge: 8
   smoothing: 75
   startWait: {x: 0.5, y: 0.5}
   maneuverTime: {x: 0.5, y: 1.5}
-  maneuverWait: {x: 1, y: 1.5}
+  maneuverWait: {x: 0.5, y: 1}
   boundary:
     xMin: 0
     xMax: 0
