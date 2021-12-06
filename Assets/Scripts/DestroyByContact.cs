@@ -7,13 +7,13 @@ public class DestroyByContact : MonoBehaviour
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
 
+    public int scoreValue;
+    private Level3GameController level3GameController;
+
     void Start()
     {
-        gameController = GameObject.FindWithTag("GameController").GetComponent<Level3GameController>();
+        level3GameController = GameObject.FindWithTag("Level3GameController").GetComponent<Level3GameController>();
     }
-
-    public int scoreValue;
-    private Level3GameController gameController;
 
     void OnTriggerEnter(Collider other)
     {
@@ -21,13 +21,13 @@ public class DestroyByContact : MonoBehaviour
 
         Instantiate(enemyExplosion, transform.position, transform.rotation);
         
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            gameController.GameOver();
+            level3GameController.GameOver();
         }
 
-        gameController.AddScore(scoreValue);
+        level3GameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
