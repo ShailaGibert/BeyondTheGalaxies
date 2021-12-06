@@ -11,8 +11,9 @@ public class Level3GameController : MonoBehaviour
     private int score;
     public Text scoreText;
 
-    public Text restartText;
+    //public Text restartText;
     private bool restart;
+    public GameObject gameOverMenuUI;
     public Text gameOverText;
     private bool gameOver;
     
@@ -20,7 +21,7 @@ public class Level3GameController : MonoBehaviour
     void Start()
     {
         restart = false;
-        restartText.gameObject.SetActive(false);
+        //restartText.gameObject.SetActive(false);
         gameOver = false;
         gameOverText.gameObject.SetActive(false);
         score = 0;
@@ -33,16 +34,6 @@ public class Level3GameController : MonoBehaviour
     {
         Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
         Instantiate(hazard, spawPosition, Quaternion.identity);
-
-        while(true)
-        {
-            if(gameOver)
-            {
-                restartText.gameObject.SetActive(true);
-                restart = true;
-                break;
-            }
-        }
     }
 
     void UpdateScore()
@@ -58,7 +49,13 @@ public class Level3GameController : MonoBehaviour
 
     public void GameOver()
     {
+        gameOverMenuUI.SetActive(true);
+        //Time.timeScale = 0f;
+
         gameOverText.gameObject.SetActive(true);
         gameOver = true;
+
+        //restartText.gameObject.SetActive(true);
+        restart = true;
     }
 }
