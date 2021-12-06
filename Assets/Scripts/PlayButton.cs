@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayButton : MonoBehaviour
 
     void onMouseDown()
     {
-        Application.LoadLevel("Level3");
+        //Application.LoadLevel("Level3");
+        SceneManager.LoadScene("Level3");
     }
 }
