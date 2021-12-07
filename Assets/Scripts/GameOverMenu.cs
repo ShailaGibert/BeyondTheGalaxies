@@ -14,11 +14,12 @@ public class GameOverMenu : MonoBehaviour
 
     }
 
-    public void TryAgain()
+    public void TryAgain(string sceneName)
     {
         //Time.timeScale = 1f;
         //SceneManager.LoadScene("Level3");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void LoadMenu()
