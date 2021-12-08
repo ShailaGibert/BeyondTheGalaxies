@@ -22,7 +22,7 @@ public class RandomRotator : MonoBehaviour
 
         //Vector3 angularVelocity = new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
 
-        //Vector3 angularVelocity = Random.insideUnitSphere;
+        Vector3 angularVelocity = Random.insideUnitSphere;
         //rig.angularVelocity = angularVelocity * tumble;
         rig.angularVelocity = Random.insideUnitSphere * tumble;
 

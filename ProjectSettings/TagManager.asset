@@ -9,6 +9,7 @@ TagManager:
   - Bolt
   - Level3GameController
   - Enemy
+  - Level1GameController
   layers:
   - Default
   - TransparentFX

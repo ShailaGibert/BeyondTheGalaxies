@@ -6,17 +6,31 @@ public class GameController : MonoBehaviour
 {
     public GameObject hazard;
     public Vector3 spawnValues;
+    public int hazardCount;
+    public float spawnWait;
+    public float startWait;
+    public float WaveWait;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpawnWaves();
+        StartCoroutine(SpawnWaves());
     }
 
     // Update is called once per frame
-    void SpawnWaves()
-    {
-        Vector3 spawnPosition = new Vector3(spawnValues.x, spawnValues.y, spawnValues.z);
-        Instantiate(hazard, spawnPosition, Quaternion.identity);
+    IEnumerator SpawnWaves()
+    {   
+        yield return new WaitForSeconds(startWait);
+        while(true)
+        {
+            for(int i=0; i<hazardCount; i++)
+            {   
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x,spawnValues.x), spawnValues.y, spawnValues.z);
+                Instantiate(hazard, spawnPosition, Quaternion.identity);
+                yield return new WaitForSeconds(spawnWait);
+            }
+            yield return new WaitForSeconds(WaveWait);
+        }
+        
     }
 }
