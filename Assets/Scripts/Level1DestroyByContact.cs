@@ -6,6 +6,13 @@ public class Level1DestroyByContact : MonoBehaviour
 {
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
+    public int scoreValue;
+    private GameController gameController;
+    void Start(){
+
+        GameObject gameControllerObject=GameObject.FindWithTag("Level1GameController");
+        gameController=gameControllerObject.GetComponent<GameController>();
+    }
 
    void OnTriggerEnter(Collider other)
     {   
@@ -14,8 +21,9 @@ public class Level1DestroyByContact : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            
+            gameController.GameOver();
         }
+        gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
