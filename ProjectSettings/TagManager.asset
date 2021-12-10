@@ -10,6 +10,7 @@ TagManager:
   - Level3GameController
   - Enemy
   - Level1GameController
+  - Level2GameController
   layers:
   - Default
   - TransparentFX

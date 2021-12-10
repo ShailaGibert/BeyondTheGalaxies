@@ -9,10 +9,12 @@ public class DestroyByContact : MonoBehaviour
 
     public int scoreValue;
     private Level3GameController level3GameController;
+  //  private Level2GameController level2GameController;
 
     void Start()
     {
         level3GameController = GameObject.FindWithTag("Level3GameController").GetComponent<Level3GameController>();
+     //   level2GameController = GameObject.FindWithTag("Level2GameController").GetComponent<Level2GameController>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -28,6 +30,7 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             level3GameController.GameOver();
+            //level2GameController.GameOver();
         }
 
         level3GameController.AddScore(scoreValue);
