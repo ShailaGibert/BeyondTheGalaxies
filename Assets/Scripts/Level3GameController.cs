@@ -27,6 +27,8 @@ public class Level3GameController : MonoBehaviour
         //restartText.gameObject.SetActive(false);
         gameOver = false;
         gameOverText.gameObject.SetActive(false);
+        winner = false;
+        winnerText.gameObject.SetActive(false);
         score = 0;
         UpdateScore();
         SpawnShip();
