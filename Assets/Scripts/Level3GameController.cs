@@ -16,7 +16,10 @@ public class Level3GameController : MonoBehaviour
     public GameObject gameOverMenuUI;
     public Text gameOverText;
     private bool gameOver;
-    
+    public GameObject winnerMenuUI;
+    public Text winnerText;
+    private bool winner;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,5 +60,17 @@ public class Level3GameController : MonoBehaviour
 
         //restartText.gameObject.SetActive(true);
         restart = true;
+    }
+
+    public void Winner()
+    {
+        winnerMenuUI.SetActive(true);
+        //Time.timeScale = 0f;
+
+        winnerText.gameObject.SetActive(true);
+        winner = true;
+
+        //restartText.gameObject.SetActive(true);
+        //¿¿¿?????restart = true;
     }
 }
