@@ -2,14 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LuminarisHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 10;
+    public int maxHealth;
     public int currentHealth;
-
-    //PROBAR: instanciar las explosiones desde aquí
-    //public GameObject enemyExplosion;
-    //public GameObject playerExplosion;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +17,10 @@ public class LuminarisHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
-            //Play death animation
-
-            // Show GameOver screen
-
+            // Llamar a GameOverMenu
         }
     }
+   
 }

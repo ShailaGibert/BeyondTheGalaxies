@@ -9,7 +9,8 @@ public class Level3DestroyByContact : MonoBehaviour
 
     public int scoreValue;
     private Level3GameController level3GameController;
-    
+    public LuminarisHealth enemyHealth;
+
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class Level3DestroyByContact : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Boundary") || other.CompareTag("Enemy")) return;
+        if (other.CompareTag("Boundary") /*|| other.CompareTag("Enemy")*/) return;
 
         if (enemyExplosion != null)
         {
@@ -32,8 +33,26 @@ public class Level3DestroyByContact : MonoBehaviour
             level3GameController.GameOver();
         }
 
+        //PRUEBA: Si le alcanza un disparo del jugador
+        if(other.CompareTag("Bolt"))
+        {
+            //La vida va bajando
+            var healthComponent = GetComponent<LuminarisHealth>();
+            if (healthComponent != null)
+            {
+                healthComponent.TakeDamage(1);
+               
+            }
+            //Si la vida llega a cero
+            if (healthComponent.currentHealth == 0)
+            {
+                level3GameController.Winner();
+                Destroy(gameObject);
+            }
+        }
+
         level3GameController.AddScore(scoreValue);
         Destroy(other.gameObject);
-        Destroy(gameObject);
+        
     }
 }
