@@ -27,16 +27,21 @@ public class HealthStatusBar : MonoBehaviour
             fillImage.enabled = true;
         }
 
-        float fillValue = enemyHealth.currentHealth / enemyHealth.maxHealth;
+        float fillValue = (float)enemyHealth.currentHealth / (float)enemyHealth.maxHealth;
+        //Debug.Log(fillValue);
 
-        if(fillValue <= slider.maxValue / 3)
+        /*
+        //Para que la barra cambie de color al llegar a un tercio de la vida
+        if(fillValue <= (slider.maxValue / 3))
         {
             fillImage.color = Color.yellow; //Critical condition
         }
-        else if(fillValue > slider.maxValue / 3)
+        else if(fillValue > (slider.maxValue / 3))
         {
             fillImage.color = Color.red;
         }
+        */
         slider.value = fillValue;
+        
     }
 }
