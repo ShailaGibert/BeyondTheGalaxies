@@ -14,9 +14,9 @@ public class GameController : MonoBehaviour
     public float WaveWait;
     private int score;
     public Text scoreText;
-    public Text restartText;
+    public GameObject restartGameObject;
     private bool restart;
-    public Text gameOverText;
+    public GameObject gameOverGameObject;
     private bool gameOver;
 
     // Start is called before the first frame update
@@ -24,9 +24,9 @@ public class GameController : MonoBehaviour
     {   
 
         restart=false;
-        restartText.gameObject.SetActive(false);
+        restartGameObject.SetActive(false);
         gameOver=false;
-        gameOverText.gameObject.SetActive(false);
+        gameOverGameObject.SetActive(false);
 
         score=0;
         UpdateScore();
@@ -37,8 +37,13 @@ public class GameController : MonoBehaviour
         
         if(restart && Input.GetKeyDown(KeyCode.R)){
 
-            SceneManager.LoadScene(1);
+            Restart();
+            
         }
+    }
+    public void Restart(){
+
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator SpawnWaves()
@@ -55,7 +60,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(WaveWait);
             if(gameOver){
 
-                restartText.gameObject.SetActive(true);
+                restartGameObject.SetActive(true);
                 restart=true;
                 break;
 
@@ -76,7 +81,7 @@ public class GameController : MonoBehaviour
     }
     public void GameOver(){
 
-        gameOverText.gameObject.SetActive(true);
+        gameOverGameObject.SetActive(true);
         gameOver=true;
     }
 }
