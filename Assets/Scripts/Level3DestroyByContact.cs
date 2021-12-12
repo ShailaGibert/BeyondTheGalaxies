@@ -36,7 +36,7 @@ public class Level3DestroyByContact : MonoBehaviour
         //PRUEBA: Si le alcanza un disparo del jugador
         if(other.CompareTag("Bolt"))
         {
-            //La vida va bajando
+            /*//La vida va bajando
             var healthComponent = GetComponent<LuminarisHealth>();
             if (healthComponent != null)
             {
@@ -48,11 +48,26 @@ public class Level3DestroyByContact : MonoBehaviour
             {
                 level3GameController.Winner();
                 Destroy(gameObject);
+            }*/
+
+            //La vida va bajando
+            enemyHealth = GetComponent<LuminarisHealth>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(1);
+
             }
+            //Si la vida llega a cero
+            if (enemyHealth.currentHealth == 0.0)
+            {
+                level3GameController.Winner();
+                Destroy(gameObject); //Se destruye la nave enemiga
+            }
+
         }
 
         level3GameController.AddScore(scoreValue);
-        Destroy(other.gameObject);
+        Destroy(other.gameObject); //Se destruye el jugador
         
     }
 }

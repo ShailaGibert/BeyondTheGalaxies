@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29995bdc14e13b4db989bbaa94bea8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.5
+  speed: -0.3
 --- !u!114 &535098873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +829,7 @@ MonoBehaviour:
   enemyExplosion: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
   playerExplosion: {fileID: 100006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
   scoreValue: 100
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 535098873}
 --- !u!1 &292758132981713188
 GameObject:
   m_ObjectHideFlags: 0
