@@ -833,26 +833,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1254919888 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8226701138318923712, guid: b08befdea83c70a41a841b1331284c01, type: 3}
-  m_PrefabInstance: {fileID: 8557078368858585901}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1254919889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254919888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ac90ae52e573549839f58833bf5e7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyExplosion: {fileID: 0}
-  playerExplosion: {fileID: 0}
-  scoreValue: 0
 --- !u!1 &1397059092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,10 +1621,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 919256683332035438, guid: b08befdea83c70a41a841b1331284c01, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8557078368734049446, guid: b08befdea83c70a41a841b1331284c01, type: 3}
       propertyPath: m_RootOrder
       value: 8
