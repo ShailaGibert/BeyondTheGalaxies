@@ -8,11 +8,9 @@ public class WinnerMenu : MonoBehaviour
     //public static bool winner = false;
     public GameObject winnerMenuUI;
 
-    public void NextLevel(string sceneName) //----- pantalla final será Scene o CanvasMenu?????
+    public void NextLevel(string sceneName)
     {
         //Time.timeScale = 1f;
-        //SceneManager.LoadScene("Level3");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(sceneName);
     }
 
