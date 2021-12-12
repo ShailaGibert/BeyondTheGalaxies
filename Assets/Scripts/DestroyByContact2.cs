@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyByContact : MonoBehaviour
+public class DestroyByContact2 : MonoBehaviour
 {
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
 
     public int scoreValue;
 
-    private Level3GameController level3GameController;
+    private Level2GameController level2GameController;
 
-    //
     void Start()
     {
 
-        level3GameController = GameObject.FindWithTag("Level3GameController").GetComponent<Level3GameController>(); 
-        //level2GameController = GameObject.FindWithTag("Level2GameController").GetComponent<Level2GameController>();
+        level2GameController = GameObject.FindWithTag("Level2GameController").GetComponent<Level2GameController>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -35,9 +33,7 @@ public class DestroyByContact : MonoBehaviour
         }
 
 
-        level3GameController.AddScore(scoreValue);
-
-//        level2GameController.AddScore(scoreValue);
+        level2GameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
