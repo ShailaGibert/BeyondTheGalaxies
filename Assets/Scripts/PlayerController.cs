@@ -24,9 +24,22 @@ public class PlayerController : MonoBehaviour
     private float nextFire;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rig = GetComponent<Rigidbody>();
+    }
+    void Start(){
+
+        UpdateBoundary();
+    }
+    void UpdateBoundary(){
+
+        Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
+        boundary.xMin= -half.x +0.5f;
+        boundary.xMax= half.x -0.5f;
+        boundary.zMin= -half.y+6.3f;
+        boundary.zMax= half.y+ 1.0f;
+      
     }
 
     // Update is called once per frame
