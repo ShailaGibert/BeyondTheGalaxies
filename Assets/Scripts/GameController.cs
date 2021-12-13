@@ -17,7 +17,10 @@ public class GameController : MonoBehaviour
     public GameObject restartGameObject;
     private bool restart;
     public GameObject gameOverGameObject;
-    private bool gameOver;
+    private bool gameOver;public GameObject winnerMenuUI;
+    public Text winnerText;
+    private bool winner;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +31,13 @@ public class GameController : MonoBehaviour
         restartGameObject.SetActive(false);
         gameOver=false;
         gameOverGameObject.SetActive(false);
-
         score=0;
+        
         UpdateScore();
-
         StartCoroutine(SpawnWaves());
+        
+        winner = false;
+        winnerText.gameObject.SetActive(false);
     }
     void  UpdateSpawnValue(){
         Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
@@ -89,5 +94,16 @@ public class GameController : MonoBehaviour
 
         gameOverGameObject.SetActive(true);
         gameOver=true;
+    }public void Winner()
+    {
+        winnerMenuUI.SetActive(true);
+        //Time.timeScale = 0f;
+
+        winnerText.gameObject.SetActive(true);
+        winner = true;
+
+        //restartText.gameObject.SetActive(true);
+        //���?????restart = true;
     }
+
 }
