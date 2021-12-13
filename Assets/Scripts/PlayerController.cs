@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 [System.Serializable]
 public class Boundary
@@ -23,15 +24,28 @@ public class PlayerController : MonoBehaviour
     private float nextFire;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rig = GetComponent<Rigidbody>();
+    }
+    void Start(){
+
+        UpdateBoundary();
+    }
+    void UpdateBoundary(){
+
+        Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
+        boundary.xMin= -half.x +0.5f;
+        boundary.xMax= half.x -0.5f;
+        boundary.zMin= -half.y+6.3f;
+        boundary.zMax= half.y+ 1.0f;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        if (CrossPlatformInputManager.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, Quaternion.identity);
@@ -40,8 +54,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = CrossPlatformInputManager.GetAxis("Horizontal");
+        float moveVertical = CrossPlatformInputManager.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
         rig.velocity = movement * speed;

@@ -14,31 +14,47 @@ public class GameController : MonoBehaviour
     public float WaveWait;
     private int score;
     public Text scoreText;
-    public Text restartText;
+    public GameObject restartGameObject;
     private bool restart;
-    public Text gameOverText;
-    private bool gameOver;
+    public GameObject gameOverGameObject;
+    private bool gameOver;public GameObject winnerMenuUI;
+    public Text winnerText;
+    private bool winner;
+
 
     // Start is called before the first frame update
     void Start()
     {   
 
+        UpdateSpawnValue();
         restart=false;
-        restartText.gameObject.SetActive(false);
+        restartGameObject.SetActive(false);
         gameOver=false;
-        gameOverText.gameObject.SetActive(false);
-
+        gameOverGameObject.SetActive(false);
         score=0;
+        
         UpdateScore();
-
         StartCoroutine(SpawnWaves());
+        
+        winner = false;
+        winnerText.gameObject.SetActive(false);
+    }
+    void  UpdateSpawnValue(){
+        Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
+        spawnValues=new Vector3(half.x-0.5f,0f,half.y+14f);
+        Debug.Log(half);
     }
     void Update(){
         
         if(restart && Input.GetKeyDown(KeyCode.R)){
 
-            SceneManager.LoadScene(1);
+            Restart();
+            
         }
+    }
+    public void Restart(){
+
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator SpawnWaves()
@@ -55,7 +71,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(WaveWait);
             if(gameOver){
 
-                restartText.gameObject.SetActive(true);
+                restartGameObject.SetActive(true);
                 restart=true;
                 break;
 
@@ -76,7 +92,18 @@ public class GameController : MonoBehaviour
     }
     public void GameOver(){
 
-        gameOverText.gameObject.SetActive(true);
+        gameOverGameObject.SetActive(true);
         gameOver=true;
+    }public void Winner()
+    {
+        winnerMenuUI.SetActive(true);
+        //Time.timeScale = 0f;
+
+        winnerText.gameObject.SetActive(true);
+        winner = true;
+
+        //restartText.gameObject.SetActive(true);
+        //���?????restart = true;
     }
+
 }

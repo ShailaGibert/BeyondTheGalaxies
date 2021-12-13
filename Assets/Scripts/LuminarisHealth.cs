@@ -21,12 +21,13 @@ public class LuminarisHealth : MonoBehaviour
     {
         currentHealth -= amount;
 
+        /*
         if(currentHealth <= 0)
         {
             //Play death animation
 
             // Show GameOver screen
 
-        }
+        }*/
     }
 }
