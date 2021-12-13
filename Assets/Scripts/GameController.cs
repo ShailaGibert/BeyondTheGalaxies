@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
     void Start()
     {   
 
+        UpdateSpawnValue();
         restart=false;
         restartGameObject.SetActive(false);
         gameOver=false;
@@ -32,6 +33,11 @@ public class GameController : MonoBehaviour
         UpdateScore();
 
         StartCoroutine(SpawnWaves());
+    }
+    void  UpdateSpawnValue(){
+        Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
+        spawnValues=new Vector3(half.x-0.5f,0f,half.y+14f);
+        Debug.Log(half);
     }
     void Update(){
         
