@@ -35,19 +35,21 @@ public class Level2GameController : MonoBehaviour
         winnerText.gameObject.SetActive(false);
         score = 0;
         UpdateScore();
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnHazard());
+        StartCoroutine(SpawnShift());
     }
 
     // Update is called once per frame
-    IEnumerator SpawnEnemy()
+    IEnumerator SpawnHazard()
     {
         for (int i = 0; i < hazardCount; i++)
         {
             Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
             Instantiate(hazard, spawPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnWait);
-        }
-
+        } 
+    }
+    IEnumerator SpawnShift() { 
         for (int i = 0; i < enemyShiftCount; i++)
         {
             Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
