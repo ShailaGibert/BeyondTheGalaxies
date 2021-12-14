@@ -14,7 +14,7 @@ public class Level3GameController : MonoBehaviour
     //public Text restartText;
     private bool restart;
     public GameObject gameOverMenuUI;
-    public Text gameOverText;
+    public GameObject gameOverGameObject;
     private bool gameOver;
     public GameObject winnerMenuUI;
     public Text winnerText;
@@ -26,7 +26,7 @@ public class Level3GameController : MonoBehaviour
         restart = false;
         //restartText.gameObject.SetActive(false);
         gameOver = false;
-        gameOverText.gameObject.SetActive(false);
+        gameOverGameObject.SetActive(false);
         winner = false;
         winnerText.gameObject.SetActive(false);
         score = 0;
@@ -57,7 +57,7 @@ public class Level3GameController : MonoBehaviour
         gameOverMenuUI.SetActive(true);
         //Time.timeScale = 0f;
 
-        gameOverText.gameObject.SetActive(true);
+        gameOverGameObject.SetActive(true);
         gameOver = true;
 
         //restartText.gameObject.SetActive(true);
