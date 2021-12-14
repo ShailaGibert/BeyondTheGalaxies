@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4703800857768142238}
   m_Layer: 0
   m_Name: Asteroid 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +170,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 72fd38d3d1566e74b8726177e8de153f, type: 3}
 --- !u!4 &4703800857754077712 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 72fd38d3d1566e74b8726177e8de153f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 72fd38d3d1566e74b8726177e8de153f,
+    type: 3}
   m_PrefabInstance: {fileID: 4703800857753948304}
   m_PrefabAsset: {fileID: 0}
