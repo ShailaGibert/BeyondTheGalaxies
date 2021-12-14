@@ -8,6 +8,9 @@ public class Level2GameController : MonoBehaviour
     public GameObject hazard;
     public GameObject enemyShift;
     public Vector3 spawnValues;
+    public float spawnWait;
+    public int hazardCount;
+    public int enemyShiftCount;
 
     private int score;
     public Text scoreText;
@@ -32,15 +35,25 @@ public class Level2GameController : MonoBehaviour
         winnerText.gameObject.SetActive(false);
         score = 0;
         UpdateScore();
-        SpawnShip();
+        StartCoroutine(SpawnEnemy());
     }
 
     // Update is called once per frame
-    void SpawnShip()
+    IEnumerator SpawnEnemy()
     {
-        Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-        Instantiate(hazard, spawPosition, Quaternion.identity);
-        Instantiate(enemyShift, spawPosition, Quaternion.identity);
+        for (int i = 0; i < hazardCount; i++)
+        {
+            Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+            Instantiate(hazard, spawPosition, Quaternion.identity);
+            yield return new WaitForSeconds(spawnWait);
+        }
+
+        for (int i = 0; i < enemyShiftCount; i++)
+        {
+            Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+            Instantiate(enemyShift, spawPosition, Quaternion.identity);
+            yield return new WaitForSeconds(spawnWait);
+        }
     }
 
     void UpdateScore()
