@@ -32,7 +32,7 @@ public class Level2DestroyByContact : MonoBehaviour
             level2GameController.GameOver();
         }
 
-        //PRUEBA: Si le alcanza un disparo del jugador
+       /* //PRUEBA: Si le alcanza un disparo del jugador
         if(other.CompareTag("Bolt"))
         {
             //La vida va bajando
@@ -48,6 +48,17 @@ public class Level2DestroyByContact : MonoBehaviour
                 level2GameController.Winner();
                 Destroy(gameObject);
             }
+        }*/
+
+        if (other.CompareTag("Player"))
+        {
+            if (scoreValue <= 50) {
+
+                level2GameController.Winner();
+                Destroy(gameObject);
+
+            }
+
         }
 
         level2GameController.AddScore(scoreValue);
