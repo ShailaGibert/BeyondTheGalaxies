@@ -475,7 +475,7 @@ MonoBehaviour:
     zMax: 25
   shot: {fileID: 9145339748904046709, guid: 1945abf6042ca3549b1db31d27f8ed55, type: 3}
   shotSpawn: {fileID: 1900491737}
-  fireRate: 0
+  fireRate: 0.3
 --- !u!1 &767372080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 720889351010891539, guid: ee02e0b19c008c740ad6901c7b7c27e4,
