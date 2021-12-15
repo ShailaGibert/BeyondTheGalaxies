@@ -9,6 +9,8 @@ public class Level2GameController : MonoBehaviour
     public GameObject enemyShift;
     public Vector3 spawnValues;
     public float spawnWait;
+    public float startWait;
+    public float waveWait;
     public int hazardCount;
     public int enemyShiftCount;
 
@@ -42,19 +44,47 @@ public class Level2GameController : MonoBehaviour
     // Update is called once per frame
     IEnumerator SpawnHazard()
     {
+        yield return new WaitForSeconds(startWait);
+
+        while (true) { 
+
         for (int i = 0; i < hazardCount; i++)
         {
             Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
             Instantiate(hazard, spawPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnWait);
-        } 
+        }
+
+        yield return new WaitForSeconds(waveWait);
+
+            if (gameOver)
+            {
+
+                GameOver();
+            }
+        }
     }
-    IEnumerator SpawnShift() { 
-        for (int i = 0; i < enemyShiftCount; i++)
+    IEnumerator SpawnShift() {
+        
+        yield return new WaitForSeconds(startWait);
+
+        while (true)
         {
-            Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-            Instantiate(enemyShift, spawPosition, Quaternion.identity);
-            yield return new WaitForSeconds(spawnWait);
+
+            for (int i = 0; i < enemyShiftCount; i++)
+            {
+                Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                Instantiate(enemyShift, spawPosition, Quaternion.identity);
+                yield return new WaitForSeconds(spawnWait);
+            }
+
+            yield return new WaitForSeconds(waveWait);
+
+            if (gameOver)
+            {
+
+                GameOver();
+            }
         }
     }
 
