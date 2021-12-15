@@ -23,6 +23,7 @@ public class Level3GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateSpawnValues();
         restart = false;
         //restartText.gameObject.SetActive(false);
         gameOver = false;
@@ -32,6 +33,14 @@ public class Level3GameController : MonoBehaviour
         score = 0;
         UpdateScore();
         SpawnShip();
+    }
+
+    void UpdateSpawnValues()
+    {
+        Vector2 half = Utils.GetDimensionsInWorldUnits() / 2;
+
+        spawnValues = new Vector3(half.x - 1.5f, 0f, half.y + 7f);
+        //Debug.Log(half);
     }
 
     // Update is called once per frame
