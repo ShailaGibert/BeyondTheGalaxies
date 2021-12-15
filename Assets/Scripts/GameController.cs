@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     private bool gameOver;public GameObject winnerMenuUI;
     public Text winnerText;
     private bool winner;
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +38,9 @@ public class GameController : MonoBehaviour
         
         winner = false;
         winnerText.gameObject.SetActive(false);
+        
+
+
     }
     void  UpdateSpawnValue(){
         Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
@@ -49,6 +52,7 @@ public class GameController : MonoBehaviour
         if(restart && Input.GetKeyDown(KeyCode.R)){
 
             Restart();
+            
             
         }
     }
