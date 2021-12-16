@@ -29,12 +29,19 @@ public class DestroyByContact2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            //level2GameController.GameOver();
+            level2GameController.GameOver();
         }
 
 
         level2GameController.AddScore(scoreValue);
         Destroy(other.gameObject);
         Destroy(gameObject);
+
+        if (level2GameController.GetScore() == 50)
+        {
+            level2GameController.Winner();
+        }
+
+        
     }
 }

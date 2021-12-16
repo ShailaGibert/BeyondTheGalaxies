@@ -48,20 +48,23 @@ public class Level2GameController : MonoBehaviour
 
         while (true) { 
 
-        for (int i = 0; i < hazardCount; i++)
-        {
-            Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-            Instantiate(hazard, spawPosition, Quaternion.identity);
-            yield return new WaitForSeconds(spawnWait);
-        }
+            for (int i = 0; i < hazardCount; i++)
+            {
+                Vector3 spawPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                Instantiate(hazard, spawPosition, Quaternion.identity);
+                yield return new WaitForSeconds(spawnWait);
+            }
 
-        yield return new WaitForSeconds(waveWait);
+            yield return new WaitForSeconds(waveWait);
 
             if (gameOver)
             {
-
                 GameOver();
+                gameOverText.gameObject.SetActive(true);
+                restart = true;
+                break;
             }
+           
         }
     }
     IEnumerator SpawnShift() {
@@ -82,8 +85,10 @@ public class Level2GameController : MonoBehaviour
 
             if (gameOver)
             {
-
                 GameOver();
+                gameOverText.gameObject.SetActive(true);
+                restart = true;
+                break;
             }
         }
     }
@@ -121,5 +126,10 @@ public class Level2GameController : MonoBehaviour
 
         //restartText.gameObject.SetActive(true);
         //¿¿¿?????restart = true;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
