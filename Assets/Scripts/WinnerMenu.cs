@@ -11,8 +11,8 @@ public class WinnerMenu : MonoBehaviour
 
     public void NextLevel(string sceneName)
     {
-        //Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
+        //Time.timeScale = 1f;
     }
 
     public void LoadMenu()

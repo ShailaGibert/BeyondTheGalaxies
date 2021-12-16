@@ -16,7 +16,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void TryAgain(string sceneName)
     {
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         //SceneManager.LoadScene("Level3");
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(sceneName);
