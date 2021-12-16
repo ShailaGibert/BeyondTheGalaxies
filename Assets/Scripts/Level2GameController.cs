@@ -41,6 +41,22 @@ public class Level2GameController : MonoBehaviour
         StartCoroutine(SpawnShift());
     }
 
+
+    void Update() {
+
+        if (winner) {
+
+            Winner();
+        }
+
+        if (gameOver) {
+
+            GameOver();
+        
+        }
+    
+    
+    }
     // Update is called once per frame
     IEnumerator SpawnHazard()
     {
@@ -107,7 +123,7 @@ public class Level2GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverMenuUI.SetActive(true);
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
 
         gameOverText.gameObject.SetActive(true);
         gameOver = true;

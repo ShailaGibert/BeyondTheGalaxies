@@ -37,7 +37,7 @@ public class DestroyByContact2 : MonoBehaviour
         Destroy(other.gameObject);
         Destroy(gameObject);
 
-        if (level2GameController.GetScore() == 50)
+        if (level2GameController.GetScore() >= 300)
         {
             level2GameController.Winner();
         }
