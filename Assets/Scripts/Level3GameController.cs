@@ -64,7 +64,7 @@ public class Level3GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverMenuUI.SetActive(true);
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
 
         gameOverGameObject.SetActive(true);
         gameOver = true;
@@ -83,5 +83,10 @@ public class Level3GameController : MonoBehaviour
 
         //restartText.gameObject.SetActive(true);
         //¿¿¿?????restart = true;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }

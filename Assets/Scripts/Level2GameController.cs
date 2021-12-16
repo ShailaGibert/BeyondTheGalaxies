@@ -119,7 +119,7 @@ public class Level2GameController : MonoBehaviour
     public void Winner()
     {
         winnerMenuUI.SetActive(true);
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
 
         winnerText.gameObject.SetActive(true);
         winner = true;
