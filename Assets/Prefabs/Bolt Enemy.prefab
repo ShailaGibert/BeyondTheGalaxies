@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 354592951673568405}
   - component: {fileID: 354592951673568404}
   - component: {fileID: 354592951673568402}
-  - component: {fileID: 8791310581525760056}
+  - component: {fileID: 8035472837141215061}
   m_Layer: 0
   m_Name: Bolt Enemy
   m_TagString: Enemy
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &8791310581525760056
+--- !u!114 &8035472837141215061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 354592951673568406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7fcd4d894dac04288efbef81a40d0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 39ac90ae52e573549839f58833bf5e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyExplosion: {fileID: 0}
