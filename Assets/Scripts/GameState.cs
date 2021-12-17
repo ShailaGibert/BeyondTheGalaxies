@@ -7,7 +7,7 @@ using System.IO;
 
 public class GameState : MonoBehaviour
 {
-    public int maxScore;
+    public int score;
     public static GameState gameState;
     private String rutaArchivo;
     void Awake()
@@ -45,7 +45,7 @@ public class GameState : MonoBehaviour
         FileStream file = new FileStream(rutaArchivo, (FileMode)4);
 
         DataToSave data = new DataToSave();
-        data.maxScore = maxScore;
+        data.score = score;
 
         bf.Serialize(file, data);
 
@@ -53,7 +53,7 @@ public class GameState : MonoBehaviour
 
     }
 
-    void LoadData()
+    public void LoadData()
     {
         if(File.Exists(rutaArchivo))
         {
@@ -62,20 +62,21 @@ public class GameState : MonoBehaviour
 
             DataToSave data = (DataToSave)bf.Deserialize(file);
 
-            maxScore = data.maxScore;
+            score = data.score;
 
             file.Close();
         }
         else
         {
-            maxScore = 0;
+            score = 0;
         }
         
     }
 }
+
 [Serializable]
 class DataToSave
 {
-    public int maxScore;
+    public int score;
 
 }

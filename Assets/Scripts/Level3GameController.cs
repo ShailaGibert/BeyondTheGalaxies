@@ -90,4 +90,24 @@ public class Level3GameController : MonoBehaviour
     {
         return score;
     }
+
+    void Update()
+    {
+        //score = GetScore();
+
+        if (winner)
+        {
+
+            Winner();
+        }
+
+        if (gameOver)
+        {
+
+            GameOver();
+
+        }
+
+
+    }
 }

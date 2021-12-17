@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour
     }
     void UpdateBoundary(){
 
-        /*Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
+        Vector2 half = Utils.GetDimensionsInWorldUnits() /2;
         boundary.xMin= -half.x +0.5f;
         boundary.xMax= half.x -0.5f;
         boundary.zMin= -half.y+6.3f;
-        boundary.zMax= half.y+ 1.0f;*/
+        boundary.zMax= half.y+ 1.0f;
       
     }
 

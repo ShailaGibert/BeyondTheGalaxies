@@ -60,17 +60,20 @@ public class Level3DestroyByContact : MonoBehaviour
             //Si la vida llega a cero
             if (enemyHealth.currentHealth == 0.0)
             {
-                GameState.gameState.maxScore = level3GameController.GetScore();
-                GameState.gameState.SaveData();
+                
                 Destroy(gameObject); //Se destruye la nave enemiga
                 level3GameController.Winner();
                 //Time.timeScale = 0f;
+
             }
 
         }
 
         level3GameController.AddScore(scoreValue);
         Destroy(other.gameObject); //Se destruye el jugador
-        
+
+        GameState.gameState.score = level3GameController.GetScore();
+        GameState.gameState.SaveData();
+        PlayerPrefs.SetFloat("score", level3GameController.GetScore());
     }
 }
