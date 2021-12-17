@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Xml;
+using System.IO;
 
 public class FinalSceneGameController : MonoBehaviour
 {
@@ -28,12 +29,12 @@ public class FinalSceneGameController : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = "Your Score: " + score;
+        SaveByXML();
         //finalSceneGameController.ScoreText.text = "Score: " + score;
     }
 
-    //NEW TODO ABAJO 
 
-    
+    //NEW TODO ABAJO: GUARDAR PUNTUACIÓN EN ARCHIVO XML
 
     public void SaveByXML() {
 
@@ -44,15 +45,16 @@ public class FinalSceneGameController : MonoBehaviour
         #region CreateXML elements
 
         XmlElement root = xmlDocument.CreateElement("Save");
-        root.SetAttribute("FileName", "File_01");     
+        //root.SetAttribute("FileName", "File_01");     
 
-        XmlElement score = xmlDocument.CreateElement("Total Score");
-        score.InnerText = save.score.ToString();
-        root.AppendChild(score);
+        XmlElement scoreElement = xmlDocument.CreateElement("score");
+        scoreElement.InnerText = save.score.ToString();
+        root.AppendChild(scoreElement);
 
         #endregion
 
         xmlDocument.AppendChild(root);
+
         xmlDocument.Save(Application.dataPath + "/DataXML.text");
 
             if(File.Exists(Application.dataPath + "/DataXML.text")) {
