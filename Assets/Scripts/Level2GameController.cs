@@ -29,6 +29,7 @@ public class Level2GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         restart = false;
         //restartText.gameObject.SetActive(false);
         gameOver = false;
