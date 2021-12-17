@@ -37,6 +37,10 @@ public class DestroyByContact2 : MonoBehaviour
         Destroy(other.gameObject);
         Destroy(gameObject);
 
+        GameState.gameState.score = level2GameController.GetScore();
+        GameState.gameState.SaveData();
+        PlayerPrefs.SetFloat("score", level2GameController.GetScore());
+
         if (level2GameController.GetScore() >= 300)
         {
             level2GameController.Winner();
