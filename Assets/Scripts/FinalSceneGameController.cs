@@ -15,7 +15,7 @@ public class FinalSceneGameController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        PlayerPrefs.GetFloat("score");
+        //PlayerPrefs.GetFloat("score");
         score = GameState.gameState.score;
         UpdateScore();
     }
@@ -62,6 +62,36 @@ public class FinalSceneGameController : MonoBehaviour
             Debug.Log("XML FILE SAVED");
         }
     
+    }
+
+    private void LoadByXML()
+    {
+        if(File.Exists(Application.dataPath + "/DataXML.text"))
+        {
+            //Load the Game
+            Save save = new Save();
+
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(Application.dataPath + "/DataXML.text");
+
+            //Get the save file data from the file
+            XmlNodeList score = xmlDocument.GetElementsByTagName("score");
+            int scorePoints = int.Parse(score[0].InnerText);
+            save.score = scorePoints;
+
+            //TODO: ADD HERE SAME CODE AS ABOVE FOR PLAYER'S NAME
+            /*XmlNodeList score = xmlDocument.GetElementsByTagName("score");
+            int scorePoints = int.Parse(score[0].InnerText);
+            save.score = scorePoints;*/
+
+            //Assign the saved data to the game real data
+            finalSceneGameController.score = save.score;
+            //Add here more data as needed
+        }
+        else
+        {
+            Debug.Log("File not found!");
+        }
     }
 
     private Save saveScore()
