@@ -7,6 +7,7 @@ public class Pausar : MonoBehaviour
 {
    public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
+    private GameObject winnerMenuUi; 
 
     // Update is called once per frame
     void Update()
@@ -19,6 +20,10 @@ public class Pausar : MonoBehaviour
             }else
             {
                 Pause();
+            }
+            if(winnerMenuUi)
+            {
+                NextLevel();
             }
         }
     }
@@ -48,6 +53,11 @@ public class Pausar : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
+    }
+    public void NextLevel(){
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(2);
     }
 
 }

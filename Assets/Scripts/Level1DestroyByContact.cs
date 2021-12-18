@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Level1DestroyByContact : MonoBehaviour
 {
     public GameObject enemyExplosion;
@@ -25,7 +26,22 @@ public class Level1DestroyByContact : MonoBehaviour
         }
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
-        Destroy(gameObject);
-    }
-}
+        Destroy(gameObject); 
+        if (gameController.GetScore()==10)
+        {
 
+            gameController.Winner();
+
+        }
+
+    }
+   
+    
+        
+    
+
+    
+
+
+
+}
