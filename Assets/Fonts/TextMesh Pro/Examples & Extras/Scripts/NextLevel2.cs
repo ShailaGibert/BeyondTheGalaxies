@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel2 : MonoBehaviour
 {
-      void Start()
+    void Start()
     {
         
     }
@@ -18,6 +18,6 @@ public class NextLevel2 : MonoBehaviour
     void onMouseDown()
 
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 }

@@ -94,7 +94,6 @@ MonoBehaviour:
   enemyExplosion: {fileID: 100008, guid: 875c9bcb71a8d7f46a64a8a7df5987e0, type: 3}
   playerExplosion: {fileID: 100008, guid: 337943813ac55274db17d9c4dfcaf5ea, type: 3}
   scoreValue: 10
-  gameController: {fileID: 0}
 --- !u!114 &8127836116238551284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +170,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 02d353aa13e27e348acd7d826d6019cb, type: 3}
 --- !u!4 &8127836115824899813 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 02d353aa13e27e348acd7d826d6019cb, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 02d353aa13e27e348acd7d826d6019cb,
+    type: 3}
   m_PrefabInstance: {fileID: 8127836115824766053}
   m_PrefabAsset: {fileID: 0}

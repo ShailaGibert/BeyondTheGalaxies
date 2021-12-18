@@ -86,15 +86,7 @@ public class GameController : MonoBehaviour
                 break;
 
             }
-            if(winner){
-
-                //esto
-                //winnerText.gameObject.SetActive(true);
-                winnerMenuUI.SetActive(true);
-                WaveWait=0;
-                hazardCount=0;
-                break;
-            }
+            
         
         }
             
@@ -131,9 +123,10 @@ public class GameController : MonoBehaviour
     }
     public void SiguienteNivel(){
 
-        Time.timeScale = 1f;
+        
         SceneManager.LoadScene(2);
     }
+    
     
 
 }
