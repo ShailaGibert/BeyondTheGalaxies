@@ -42,6 +42,7 @@ public class DestroyByContact2 : MonoBehaviour
         //GameState.gameState.SaveData();
         if(level2GameController.GetGameOver())
         {
+            PlayerPrefs.DeleteKey("score");
             //PlayerPrefs.SetFloat("score", level1GameController.GetScore());
         }
         else

@@ -36,7 +36,8 @@ public class Level2GameController : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         winner = false;
         winnerText.gameObject.SetActive(false);
-        score = (int)PlayerPrefs.GetFloat("score");
+        
+        score = (int)PlayerPrefs.GetFloat("score", 0);
         UpdateScore();
         StartCoroutine(SpawnHazard());
         StartCoroutine(SpawnShift());
@@ -50,8 +51,8 @@ public class Level2GameController : MonoBehaviour
             Winner();
         }
 
-        if (gameOver) {
-
+        if (gameOver) 
+        {
             GameOver();
         
         }
