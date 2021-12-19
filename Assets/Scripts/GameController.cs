@@ -126,12 +126,9 @@ public class GameController : MonoBehaviour
         
         SceneManager.LoadScene(2);
     }
-    
-    
-
-    public int GetScore()
-    {
-        return score;
-    }
-
 }
+    
+    
+
+    
+
