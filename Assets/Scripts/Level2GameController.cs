@@ -37,7 +37,7 @@ public class Level2GameController : MonoBehaviour
         winner = false;
         winnerText.gameObject.SetActive(false);
         //score=0;
-        score = (int)PlayerPrefs.GetFloat("score2", 0);
+        score = (int)PlayerPrefs.GetFloat("score1", 0);
         StartCoroutine(SpawnHazard());
         StartCoroutine(SpawnShift());
         UpdateScore();
