@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Xml;
+using System.Xml.Serialization;
 using System.IO;
 
 public class FinalSceneGameController : MonoBehaviour
 {
+    string jugador;
     int score;
     FinalSceneGameController finalSceneGameController;
     public Text scoreText;
@@ -28,15 +30,15 @@ public class FinalSceneGameController : MonoBehaviour
 
     void UpdateScore()
     {
+        //finalSceneGameController.ScoreText.text = "Score: " + score;
         scoreText.text = "Your Score: " + score;
         SaveByXML();
-        //finalSceneGameController.ScoreText.text = "Score: " + score;
     }
 
 
     //NEW TODO ABAJO: GUARDAR PUNTUACIÓN EN ARCHIVO XML
 
-    public void SaveByXML() {
+    /*public void SaveByXML() {
 
         Save save = saveScore();
 
@@ -44,6 +46,7 @@ public class FinalSceneGameController : MonoBehaviour
 
         #region CreateXML elements
 
+        //MODIFICAR PARA QUE EL ROOT SEA UN ARRAY????
         XmlElement root = xmlDocument.CreateElement("Save");
         //root.SetAttribute("FileName", "File_01");     
 
@@ -51,6 +54,9 @@ public class FinalSceneGameController : MonoBehaviour
         scoreElement.InnerText = save.score.ToString();
         root.AppendChild(scoreElement);
 
+        //AÑADIR LO MISMO PARA EL NOMBRE DEL JUGADOR
+
+        //AÑADIR EL SAVE CREADO AL ARRAY
         #endregion
 
         xmlDocument.AppendChild(root);
@@ -61,7 +67,17 @@ public class FinalSceneGameController : MonoBehaviour
 
             Debug.Log("XML FILE SAVED");
         }
+
+
     
+    }*/
+
+    public void SaveByXML()
+    {
+        SaveContainer saves = new SaveContainer();
+        Save save = saveScore();
+        saves.add(save);
+        saves.Save(save);
     }
 
     private void LoadByXML()
@@ -99,6 +115,7 @@ public class FinalSceneGameController : MonoBehaviour
 
         Save save = new Save();
 
+        save.jugador = jugador;
         save.score = score;
 
         return save;
