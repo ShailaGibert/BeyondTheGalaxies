@@ -96,7 +96,7 @@ public class Level3GameController : MonoBehaviour
         
         Debug.Log("He gando nivel3: "+score);
 
-        PlayerPrefs.SetFloat("score3", GetScore());
+        //PlayerPrefs.SetFloat("score3", GetScore());
 
         //restartText.gameObject.SetActive(true);
         //���?????restart = true;

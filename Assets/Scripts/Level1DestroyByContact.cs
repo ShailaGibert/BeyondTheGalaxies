@@ -28,7 +28,9 @@ public class Level1DestroyByContact : MonoBehaviour
         }
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
-        Destroy(gameObject); 
+        Destroy(gameObject);
+        PlayerPrefs.SetFloat("score1", gameController.GetScore());
+
         if (gameController.GetScore()==200)
         {
             Time.timeScale = 0.1f;

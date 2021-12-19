@@ -155,7 +155,7 @@ public class Level2GameController : MonoBehaviour
      
         Debug.Log("He ganado nivel2: "+score);
 
-        PlayerPrefs.SetFloat("score2", GetScore());
+        //PlayerPrefs.SetFloat("score2", GetScore());
 
         //restartText.gameObject.SetActive(true);
         //���?????restart = true;
