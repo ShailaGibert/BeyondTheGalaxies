@@ -20,11 +20,11 @@ public class Level3GameController : MonoBehaviour
     public Text winnerText;
     private bool winner;
 
-
-  
-
-        void Start()
+   
+    void Start()
     {
+        score = (int)PlayerPrefs.GetFloat("score2", 0);
+
         Time.timeScale = 1f;
         UpdateSpawnValues();
         restart = false;
@@ -35,8 +35,7 @@ public class Level3GameController : MonoBehaviour
         winner = false;
         winnerText.gameObject.SetActive(false);
         //score = 0;
-        //score = (int)PlayerPrefs.GetFloat("score");
-        //score = (int)PlayerPrefs.GetFloat("score");
+        //score = (int)PlayerPrefs.GetFloat("score2", 0);
         //score = GameState.gameState.score;
         
        // UpdateScore();
@@ -97,6 +96,8 @@ public class Level3GameController : MonoBehaviour
         
         Debug.Log("He gando nivel3: "+score);
 
+        PlayerPrefs.SetFloat("score3", GetScore());
+
         //restartText.gameObject.SetActive(true);
         //���?????restart = true;
     }
@@ -114,13 +115,13 @@ public class Level3GameController : MonoBehaviour
         {
 
             Winner();
-            score = (int)PlayerPrefs.GetFloat("score");
+            score = (int)PlayerPrefs.GetFloat("score3");
             
         }
 
         if (gameOver)
         {
-            score=0;
+            score = (int)PlayerPrefs.GetFloat("score2");
             GameOver();
             
 

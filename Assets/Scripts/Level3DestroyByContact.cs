@@ -74,6 +74,6 @@ public class Level3DestroyByContact : MonoBehaviour
 
         //GameState.gameState.score = level3GameController.GetScore();
         //GameState.gameState.SaveData();
-        PlayerPrefs.SetFloat("score", level3GameController.GetScore());
+        PlayerPrefs.SetFloat("score3", level3GameController.GetScore());
     }
 }

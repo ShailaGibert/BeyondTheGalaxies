@@ -15,8 +15,8 @@ public class FinalSceneGameController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
-        //PlayerPrefs.GetFloat("score");
-        score = GameState.gameState.score;
+        score = (int)PlayerPrefs.GetFloat("score3", 0);
+        //score = GameState.gameState.score;
         UpdateScore();
     }
 

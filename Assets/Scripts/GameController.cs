@@ -61,6 +61,22 @@ public class GameController : MonoBehaviour
             
             
         }
+
+        if (winner)
+        {
+
+            Winner();
+            score = (int)PlayerPrefs.GetFloat("score1");
+
+        }
+
+        if (gameOver)
+        {
+            score = 0;
+            GameOver();
+
+
+        }
     }
     public void Restart(){
 
@@ -126,6 +142,14 @@ public class GameController : MonoBehaviour
         
         SceneManager.LoadScene(2);
     }
+
+   
+        //score = GetScore();
+
+        
+
+
+    
 }
     
     

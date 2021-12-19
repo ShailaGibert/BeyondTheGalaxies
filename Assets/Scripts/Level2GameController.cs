@@ -26,7 +26,7 @@ public class Level2GameController : MonoBehaviour
     public Text winnerText;
     private bool winner;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         Time.timeScale = 1f;
@@ -36,8 +36,8 @@ public class Level2GameController : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         winner = false;
         winnerText.gameObject.SetActive(false);
-        score=0;
-        //score = (int)PlayerPrefs.GetFloat("score");
+        //score=0;
+        score = (int)PlayerPrefs.GetFloat("score2", 0);
         StartCoroutine(SpawnHazard());
         StartCoroutine(SpawnShift());
         UpdateScore();
@@ -49,16 +49,16 @@ public class Level2GameController : MonoBehaviour
         if (winner) {
 
             Winner();
-            score = (int)PlayerPrefs.GetFloat("score");
+            score = (int)PlayerPrefs.GetFloat("score2");
             
         }
 
         if (gameOver) 
         {
             GameOver();
-            
-            score=0;
-        
+
+            score = (int)PlayerPrefs.GetFloat("score1");
+
         }
     
     
@@ -154,6 +154,8 @@ public class Level2GameController : MonoBehaviour
         winner = true;
      
         Debug.Log("He ganado nivel2: "+score);
+
+        PlayerPrefs.SetFloat("score2", GetScore());
 
         //restartText.gameObject.SetActive(true);
         //���?????restart = true;
