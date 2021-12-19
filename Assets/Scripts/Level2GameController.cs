@@ -36,11 +36,11 @@ public class Level2GameController : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         winner = false;
         winnerText.gameObject.SetActive(false);
-        
-        score = (int)PlayerPrefs.GetFloat("score", 0);
-        UpdateScore();
+        score=0;
+        //score = (int)PlayerPrefs.GetFloat("score");
         StartCoroutine(SpawnHazard());
         StartCoroutine(SpawnShift());
+        UpdateScore();
     }
 
 
@@ -49,11 +49,15 @@ public class Level2GameController : MonoBehaviour
         if (winner) {
 
             Winner();
+            score = (int)PlayerPrefs.GetFloat("score");
+            
         }
 
         if (gameOver) 
         {
             GameOver();
+            
+            score=0;
         
         }
     
@@ -80,8 +84,10 @@ public class Level2GameController : MonoBehaviour
                 GameOver();
                 gameOverText.gameObject.SetActive(true);
                 restart = true;
+               
                 break;
             }
+            
            
         }
     }
@@ -114,12 +120,15 @@ public class Level2GameController : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = "Score: " + score;
+        
     }
 
+   
     public void AddScore(int value)
     {
         score += value;
         UpdateScore();
+        
     }
 
     public void GameOver()
@@ -129,6 +138,8 @@ public class Level2GameController : MonoBehaviour
 
         gameOverText.gameObject.SetActive(true);
         gameOver = true;
+        
+        Debug.Log("He perdido nivel2: "+score);
 
         //restartText.gameObject.SetActive(true);
         restart = true;
@@ -141,9 +152,11 @@ public class Level2GameController : MonoBehaviour
 
         winnerText.gameObject.SetActive(true);
         winner = true;
+     
+        Debug.Log("He ganado nivel2: "+score);
 
         //restartText.gameObject.SetActive(true);
-        //¿¿¿?????restart = true;
+        //ï¿½ï¿½ï¿½?????restart = true;
     }
 
     public int GetScore()
@@ -152,7 +165,7 @@ public class Level2GameController : MonoBehaviour
     }
 
     public bool GetGameOver()
-    {
+    {   
         return gameOver;
     }
 }

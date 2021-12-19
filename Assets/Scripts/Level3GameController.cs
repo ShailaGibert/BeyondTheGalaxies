@@ -20,24 +20,31 @@ public class Level3GameController : MonoBehaviour
     public Text winnerText;
     private bool winner;
 
-    // Start is called before the first frame update
-    void Start()
+
+  
+
+        void Start()
     {
         Time.timeScale = 1f;
         UpdateSpawnValues();
         restart = false;
+        UpdateScore();
         //restartText.gameObject.SetActive(false);
         gameOver = false;
         gameOverGameObject.SetActive(false);
         winner = false;
         winnerText.gameObject.SetActive(false);
         //score = 0;
-        score = (int)PlayerPrefs.GetFloat("score");
+        //score = (int)PlayerPrefs.GetFloat("score");
+        //score = (int)PlayerPrefs.GetFloat("score");
         //score = GameState.gameState.score;
-        UpdateScore();
+        
+       // UpdateScore();
         SpawnShip();
+        
+       
     }
-
+   
     void UpdateSpawnValues()
     {
         Vector2 half = Utils.GetDimensionsInWorldUnits() / 2;
@@ -54,15 +61,17 @@ public class Level3GameController : MonoBehaviour
     }
 
     void UpdateScore()
-    {
+    {   
         scoreText.text = "Score: " + score;
     }
 
     public void AddScore(int value)
-    {
+    {   
         score += value;
         UpdateScore();
+       
     }
+    
 
     public void GameOver()
     {
@@ -74,6 +83,8 @@ public class Level3GameController : MonoBehaviour
 
         //restartText.gameObject.SetActive(true);
         restart = true;
+        Debug.Log("He perdido nivel3: "+score);
+        
     }
 
     public void Winner()
@@ -83,9 +94,11 @@ public class Level3GameController : MonoBehaviour
 
         winnerText.gameObject.SetActive(true);
         winner = true;
+        
+        Debug.Log("He gando nivel3: "+score);
 
         //restartText.gameObject.SetActive(true);
-        //¿¿¿?????restart = true;
+        //ï¿½ï¿½ï¿½?????restart = true;
     }
 
     public int GetScore()
@@ -101,12 +114,15 @@ public class Level3GameController : MonoBehaviour
         {
 
             Winner();
+            score = (int)PlayerPrefs.GetFloat("score");
+            
         }
 
         if (gameOver)
         {
-
+            score=0;
             GameOver();
+            
 
         }
 
