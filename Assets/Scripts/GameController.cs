@@ -17,9 +17,11 @@ public class GameController : MonoBehaviour
     public GameObject restartGameObject;
     private bool restart;
     public GameObject gameOverGameObject;
-    private bool gameOver;public GameObject winnerMenuUI;
+    private bool gameOver;
+    public GameObject winnerMenuUI;
     public Text winnerText;
     private bool winner;
+    
     
 
     // Start is called before the first frame update
@@ -33,11 +35,14 @@ public class GameController : MonoBehaviour
         gameOverGameObject.SetActive(false);
         score=0;
         
+        
         UpdateScore();
         StartCoroutine(SpawnWaves());
         
         winner = false;
-        winnerText.gameObject.SetActive(false);
+        //winnerText.gameObject.SetActive(false);
+        //esto
+        winnerMenuUI.SetActive(false);
         
 
 
@@ -52,13 +57,14 @@ public class GameController : MonoBehaviour
         if(restart && Input.GetKeyDown(KeyCode.R)){
 
             Restart();
+
             
             
         }
     }
     public void Restart(){
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator SpawnWaves()
@@ -80,6 +86,7 @@ public class GameController : MonoBehaviour
                 break;
 
             }
+            
         
         }
             
@@ -98,7 +105,12 @@ public class GameController : MonoBehaviour
 
         gameOverGameObject.SetActive(true);
         gameOver=true;
-    }public void Winner()
+    }public int GetScore(){
+
+        return score;
+    }
+
+    public void Winner()
     {
         winnerMenuUI.SetActive(true);
         //Time.timeScale = 0f;
@@ -109,6 +121,13 @@ public class GameController : MonoBehaviour
         //restartText.gameObject.SetActive(true);
         //���?????restart = true;
     }
+    public void SiguienteNivel(){
+
+        
+        SceneManager.LoadScene(2);
+    }
+    
+    
 
     public int GetScore()
     {

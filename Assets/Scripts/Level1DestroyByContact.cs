@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Level1DestroyByContact : MonoBehaviour
 {
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
     public int scoreValue;
     private GameController gameController;
+    private PlayerController bolt;
     void Start(){
 
         GameObject gameControllerObject=GameObject.FindWithTag("Level1GameController");
@@ -18,6 +20,7 @@ public class Level1DestroyByContact : MonoBehaviour
     {   
         if (other.CompareTag("Boundary")) return;
         Instantiate(enemyExplosion, transform.position, transform.rotation);
+        
         if (other.CompareTag("Player"))
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
@@ -25,7 +28,23 @@ public class Level1DestroyByContact : MonoBehaviour
         }
         gameController.AddScore(scoreValue);
         Destroy(other.gameObject);
-        Destroy(gameObject);
-    }
-}
+        Destroy(gameObject); 
+        if (gameController.GetScore()==200)
+        {
+            Time.timeScale = 0.1f;
+            gameController.Winner();
+        }
 
+
+    }     
+
+   
+    
+        
+    
+
+    
+
+
+
+}
