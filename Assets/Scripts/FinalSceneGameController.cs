@@ -55,9 +55,9 @@ public class FinalSceneGameController : MonoBehaviour
 
         xmlDocument.AppendChild(root);
 
-        xmlDocument.Save(Application.dataPath + "/DataXML.text");
+        xmlDocument.Save(Application.dataPath + "/dataxml.text");
 
-            if(File.Exists(Application.dataPath + "/DataXML.text")) {
+            if(File.Exists(Application.dataPath + "/dataxml.text")) {
 
             Debug.Log("XML FILE SAVED");
         }
@@ -66,13 +66,13 @@ public class FinalSceneGameController : MonoBehaviour
 
     private void LoadByXML()
     {
-        if(File.Exists(Application.dataPath + "/DataXML.text"))
+        if(File.Exists(Application.dataPath + "/dataxml.text"))
         {
             //Load the Game
             Save save = new Save();
 
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load(Application.dataPath + "/DataXML.text");
+            xmlDocument.Load(Application.dataPath + "/dataxml.text");
 
             //Get the save file data from the file
             XmlNodeList score = xmlDocument.GetElementsByTagName("score");

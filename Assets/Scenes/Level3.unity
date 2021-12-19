@@ -1510,6 +1510,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameState
       objectReference: {fileID: 0}
+    - target: {fileID: 2138244833992483329, guid: bf66bae3c6664c949b88f4a7a96b782a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188369201403514391, guid: bf66bae3c6664c949b88f4a7a96b782a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6658180146927167630, guid: bf66bae3c6664c949b88f4a7a96b782a,
         type: 3}
       propertyPath: m_RootOrder

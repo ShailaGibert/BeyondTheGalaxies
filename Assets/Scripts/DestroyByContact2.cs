@@ -10,6 +10,7 @@ public class DestroyByContact2 : MonoBehaviour
     public int scoreValue;
 
     private Level2GameController level2GameController;
+    private GameController level1GameController;
 
     void Start()
     {
@@ -37,11 +38,20 @@ public class DestroyByContact2 : MonoBehaviour
         Destroy(other.gameObject);
         Destroy(gameObject);
 
-        GameState.gameState.score = level2GameController.GetScore();
-        GameState.gameState.SaveData();
-        PlayerPrefs.SetFloat("score", level2GameController.GetScore());
-
-        if (level2GameController.GetScore() >= 300)
+        //GameState.gameState.score = level2GameController.GetScore();
+        //GameState.gameState.SaveData();
+        if(level2GameController.GetGameOver())
+        {
+            PlayerPrefs.SetFloat("score", level1GameController.GetScore());
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("score", level2GameController.GetScore());
+        }
+        
+        //Debug.Log(level2GameController.GetScore());
+        
+        if (level2GameController.GetScore() >= 30)
         {
             level2GameController.Winner();
         }

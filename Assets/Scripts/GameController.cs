@@ -110,4 +110,9 @@ public class GameController : MonoBehaviour
         //���?????restart = true;
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
+
 }

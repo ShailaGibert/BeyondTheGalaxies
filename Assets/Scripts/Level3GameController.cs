@@ -32,8 +32,8 @@ public class Level3GameController : MonoBehaviour
         winner = false;
         winnerText.gameObject.SetActive(false);
         //score = 0;
-        //PlayerPrefs.GetFloat("score", 0);
-        score = GameState.gameState.score;
+        score = (int)PlayerPrefs.GetFloat("score");
+        //score = GameState.gameState.score;
         UpdateScore();
         SpawnShip();
     }

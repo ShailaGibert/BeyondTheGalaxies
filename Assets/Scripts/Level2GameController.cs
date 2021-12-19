@@ -36,7 +36,7 @@ public class Level2GameController : MonoBehaviour
         gameOverText.gameObject.SetActive(false);
         winner = false;
         winnerText.gameObject.SetActive(false);
-        score = 0;
+        score = (int)PlayerPrefs.GetFloat("score");
         UpdateScore();
         StartCoroutine(SpawnHazard());
         StartCoroutine(SpawnShift());
@@ -148,5 +148,10 @@ public class Level2GameController : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    public bool GetGameOver()
+    {
+        return gameOver;
     }
 }

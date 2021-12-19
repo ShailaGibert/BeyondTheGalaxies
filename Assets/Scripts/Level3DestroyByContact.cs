@@ -72,8 +72,8 @@ public class Level3DestroyByContact : MonoBehaviour
         level3GameController.AddScore(scoreValue);
         Destroy(other.gameObject); //Se destruye el jugador
 
-        GameState.gameState.score = level3GameController.GetScore();
-        GameState.gameState.SaveData();
+        //GameState.gameState.score = level3GameController.GetScore();
+        //GameState.gameState.SaveData();
         PlayerPrefs.SetFloat("score", level3GameController.GetScore());
     }
 }
