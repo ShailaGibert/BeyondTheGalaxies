@@ -219,4 +219,23 @@ public class FinalSceneGameController : MonoBehaviour
 
     }
 
+    public void LoadByXml()
+    {
+        if (File.Exists(Application.dataPath + "/dataxml.text"))
+        {
+            //The file is loaded
+            Save save = new Save();
+
+            XmlDocument.Load(Application.dataPath + "/dataxml.text");
+
+            //Getting the data from the xml file
+
+            //Getting it as a list
+            //XmlNodeList nameList = xmlDocument.GetElementsByTagName("name");
+        }
+        else
+        {
+            Debug.Log("FILE NOT FOUNDED. CANNOT BE LOADED.\n");
+        }
+    }
 }
