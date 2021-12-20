@@ -4,7 +4,12 @@
     <score>710</score>
   </player>
   <player>
-    <name />
-    <score>710</score>
+    <name>
+    </name>
+    <score>705</score>
+  </player>
+  <player>
+    <name>Shaila</name>
+    <score>705</score>
   </player>
 </SavedPlayers>

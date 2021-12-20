@@ -21,6 +21,11 @@ public class FinalSceneGameController : MonoBehaviour
     {
         Time.timeScale = 1f;
         score = (int)PlayerPrefs.GetFloat("score3", 0);
+
+        //getting name from the PlayerPref
+        //name = (string)PlayerPrefs.GetString("name");
+        name = "Shaila";
+
         //score = GameState.gameState.score;
         UpdateScore();
     }
@@ -133,7 +138,7 @@ public class FinalSceneGameController : MonoBehaviour
         XmlElement playerElement = xmlDocument.CreateElement("player");
         
         XmlElement playerNameElement = xmlDocument.CreateElement("name");
-        //playerNameElement.InnerText = save.player.ToString();
+        playerNameElement.InnerText = save.playerName.ToString();
         playerElement.AppendChild(playerNameElement);
 
         XmlElement scoreElement = xmlDocument.CreateElement("score");
@@ -208,6 +213,7 @@ public class FinalSceneGameController : MonoBehaviour
 
         save.player = jugador;
         save.playerScore = score;
+        save.playerName = name;
 
         return save;
 

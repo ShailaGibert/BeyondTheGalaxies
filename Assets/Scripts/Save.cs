@@ -7,6 +7,6 @@ public class Save : MonoBehaviour
 {
     public string player;
     public int playerScore;
-
+    public string playerName;
     
 }
