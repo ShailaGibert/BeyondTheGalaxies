@@ -5,15 +5,12 @@ using UnityEngine.UI;
 
 public class SaveName : MonoBehaviour
 {
-    private string input;
-
     public InputField textBox;
 
-    public void clickSaveButton(string s)
+    public void clickSaveButton()
     {
-        input = s;
-        Debug.Log(s);
-        PlayerPrefs.SetString("name", s);
+
+        PlayerPrefs.SetString("name", textBox.text);
         Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
     }
 }

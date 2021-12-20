@@ -23,8 +23,8 @@ public class FinalSceneGameController : MonoBehaviour
         score = (int)PlayerPrefs.GetFloat("score3", 0);
 
         //getting name from the PlayerPref
-        //name = (string)PlayerPrefs.GetString("name");
-        name = "Shaila";
+        name = PlayerPrefs.GetString("name");
+
 
         //score = GameState.gameState.score;
         UpdateScore();

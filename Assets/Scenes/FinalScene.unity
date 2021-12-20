@@ -743,6 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 
   playerScore: 0
+  playerName: 
 --- !u!1 &722257753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1456856293}
+  Saves: []
 --- !u!4 &1264721804
 Transform:
   m_ObjectHideFlags: 0
@@ -1877,16 +1879,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1092090252}
-        m_TargetAssemblyTypeName: WinnerMenu, Assembly-CSharp
-        m_MethodName: LoadMenu
-        m_Mode: 1
+      - m_Target: {fileID: 244221940469307966, guid: 010da836a4b82ac46b2338bb4ba3865b,
+          type: 3}
+        m_TargetAssemblyTypeName: loadScene, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1494602865
