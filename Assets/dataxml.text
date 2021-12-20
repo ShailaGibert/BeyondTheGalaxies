@@ -1,10 +1,10 @@
 <SavedPlayers>
-	<Saves>
-		<Save>
-  			<score>710</score>
-		</Save>
-		<Save>
-  			<score>780</score>
-		</Save>
-	</Saves>
+  <player>
+    <name />
+    <score>710</score>
+  </player>
+  <player>
+    <name />
+    <score>710</score>
+  </player>
 </SavedPlayers>

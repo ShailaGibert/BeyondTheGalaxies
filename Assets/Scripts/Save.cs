@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Save : MonoBehaviour
 {
-    public string jugador;
-    public int score;
+    public string player;
+    public int playerScore;
 
     
 }

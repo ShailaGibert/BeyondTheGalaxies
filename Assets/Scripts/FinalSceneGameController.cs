@@ -13,6 +13,9 @@ public class FinalSceneGameController : MonoBehaviour
     FinalSceneGameController finalSceneGameController;
     public Text scoreText;
 
+    public List<Save> Saves = new List<Save>();
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,17 +25,14 @@ public class FinalSceneGameController : MonoBehaviour
         UpdateScore();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     void UpdateScore()
     {
         //finalSceneGameController.ScoreText.text = "Score: " + score;
         scoreText.text = "Your Score: " + score;
-        SaveByXML();
+        SaveByXML2();
+        //SaveByXML();
     }
 
 
@@ -51,7 +51,7 @@ public class FinalSceneGameController : MonoBehaviour
         //root.SetAttribute("FileName", "File_01");     
 
         XmlElement scoreElement = xmlDocument.CreateElement("score");
-        scoreElement.InnerText = save.score.ToString();
+        scoreElement.InnerText = save.playerScore.ToString();
         root.AppendChild(scoreElement);
 
         //AÑADIR LO MISMO PARA EL NOMBRE DEL JUGADOR
@@ -68,17 +68,99 @@ public class FinalSceneGameController : MonoBehaviour
             Debug.Log("XML FILE SAVED");
         }
 
-
-    
     }*/
+
+    public void SaveByXML2()
+    {
+        Save save = saveScore();
+        AddNewPlayerToXml(save);
+    }
 
     public void SaveByXML()
     {
+        Save save = saveScore();
+        //AÑADIMOS EL SAVE CREADO AL ARRAY
+        Saves.Add(save);
+        
+
+    XmlDocument xmlDocument = new XmlDocument();
+
+        #region CreateXML elements
+
+        //CREAMOS EL DOCUMENTO CON EL ARRAY COMO ROOT
+        XmlElement root = xmlDocument.CreateElement("SavedPlayers");
+        //root.SetAttribute("FileName", "File_01");     
+
+        //CREAMOS LOS ELEMENTOS, CADA UNO DE LOS CUALES SERÁ UN PLAYER
+        XmlElement playerElement = xmlDocument.CreateElement("player");
+        root.AppendChild(playerElement);
+
+        //AÑADIMOS EL NOMBRE DEL JUGADOR Y LA PUNTUACIÓN
+        XmlElement playerNameElement = xmlDocument.CreateElement("name");
+        //playerNameElement.InnerText = save.player.ToString();
+        playerElement.AppendChild(playerNameElement);
+
+        XmlElement scoreElement = xmlDocument.CreateElement("score");
+        scoreElement.InnerText = save.playerScore.ToString();
+        playerElement.AppendChild(scoreElement);
+
+        #endregion
+
+        xmlDocument.AppendChild(root);
+
+        xmlDocument.Save(Application.dataPath + "/dataxml.text");
+
+        if (File.Exists(Application.dataPath + "/dataxml.text"))
+        {
+
+            Debug.Log("XML FILE SAVED");
+        }
+
+
+
+    }
+
+    public void AddNewPlayerToXml(Save save)
+    {
+        //CARGAMOS LA LISTA DE PLAYERS DEL DOCUMENTO -- REVISAR !!!!!!
+        //Saves = LoadListFromXml();
+
+        //CREAMOS UN NUEVO DOCUMENTO Y CARGAMOS EL EXISTENTE
+        XmlDocument xmlDocument = new XmlDocument();
+        xmlDocument.Load(Application.dataPath + "/dataxml.text");
+
+        //CREAMOS EL NUEVO PLAYER Y LO AÑADIMOS A LA LISTA DE PLAYERS CARGADA
+        XmlElement playerElement = xmlDocument.CreateElement("player");
+        
+        XmlElement playerNameElement = xmlDocument.CreateElement("name");
+        //playerNameElement.InnerText = save.player.ToString();
+        playerElement.AppendChild(playerNameElement);
+
+        XmlElement scoreElement = xmlDocument.CreateElement("score");
+        scoreElement.InnerText = save.playerScore.ToString();
+        playerElement.AppendChild(scoreElement);
+
+        xmlDocument.DocumentElement.AppendChild(playerElement);
+
+        //VOLVEMOS A GUARDAR EL XML
+        xmlDocument.Save(Application.dataPath + "/dataxml.text");
+
+        if (File.Exists(Application.dataPath + "/dataxml.text"))
+        {
+
+            Debug.Log("XML FILE SAVED");
+        }
+
+    }
+
+    /*public void SaveByXML(int score)
+    {
         SaveContainer saves = new SaveContainer();
         Save save = saveScore();
-        saves.add(save);
-        saves.Save(save);
-    }
+        save.playerScore = score;
+        saves.Add(save);
+        saves.Save();
+    }*/
 
     private void LoadByXML()
     {
@@ -93,7 +175,7 @@ public class FinalSceneGameController : MonoBehaviour
             //Get the save file data from the file
             XmlNodeList score = xmlDocument.GetElementsByTagName("score");
             int scorePoints = int.Parse(score[0].InnerText);
-            save.score = scorePoints;
+            save.playerScore = scorePoints;
 
             //TODO: ADD HERE SAME CODE AS ABOVE FOR PLAYER'S NAME
             /*XmlNodeList score = xmlDocument.GetElementsByTagName("score");
@@ -101,7 +183,7 @@ public class FinalSceneGameController : MonoBehaviour
             save.score = scorePoints;*/
 
             //Assign the saved data to the game real data
-            finalSceneGameController.score = save.score;
+            finalSceneGameController.score = save.playerScore;
             //Add here more data as needed
         }
         else
@@ -110,15 +192,25 @@ public class FinalSceneGameController : MonoBehaviour
         }
     }
 
+    public static List<Save> LoadListFromXml()
+    {
+        var serializer = new XmlSerializer(typeof(List<Save>));
+        using (var stream = new FileStream(Application.dataPath + "/dataxml.text", FileMode.Open))
+        {
+            return serializer.Deserialize(stream) as List<Save>;
+        }
+    }
+
     private Save saveScore()
     {
 
         Save save = new Save();
 
-        save.jugador = jugador;
-        save.score = score;
+        save.player = jugador;
+        save.playerScore = score;
 
         return save;
 
     }
+
 }
