@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public Transform shotSpawn;
     public float fireRate;
     private float nextFire;
+    
+    
 
     // Start is called before the first frame update
     void Awake()

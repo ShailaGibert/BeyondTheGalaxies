@@ -21,9 +21,7 @@ public class GameController : MonoBehaviour
     public GameObject winnerMenuUI;
     public Text winnerText;
     private bool winner;
-    
-    
-
+   
     // Start is called before the first frame update
     void Start()
     {   
@@ -34,7 +32,7 @@ public class GameController : MonoBehaviour
         gameOver=false;
         gameOverGameObject.SetActive(false);
         score=0;
-        
+       
         
         UpdateScore();
         StartCoroutine(SpawnWaves());
@@ -58,8 +56,6 @@ public class GameController : MonoBehaviour
 
             Restart();
 
-            
-            
         }
 
         if (winner)

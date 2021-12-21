@@ -16,6 +16,7 @@ public class Level3DestroyByContact : MonoBehaviour
     {
         level3GameController = GameObject.FindWithTag("Level3GameController").GetComponent<Level3GameController>();
         
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -45,7 +46,7 @@ public class Level3DestroyByContact : MonoBehaviour
             }
             //Si la vida llega a cero
             if (healthComponent.currentHealth == 0)
-            {
+            {s
                 level3GameController.Winner();
                 Destroy(gameObject);
             }*/
