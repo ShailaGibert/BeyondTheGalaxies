@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using System.Text;
+using System;
 
 public class FinalSceneGameController : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class FinalSceneGameController : MonoBehaviour
     public Text scoreText;
 
     public List<Save> Saves = new List<Save>();
+
+    //public TextAsset xmlRawFile;
+    public Text uiText;
 
 
     // Start is called before the first frame update
@@ -28,6 +33,18 @@ public class FinalSceneGameController : MonoBehaviour
 
         //score = GameState.gameState.score;
         UpdateScore();
+
+        string data = (Application.dataPath + "/dataxml.text");
+
+        var encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: true);
+        string _byteOrderMarkUtf8 = encoding.GetString(encoding.GetPreamble());
+        //string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+        if (data.StartsWith(_byteOrderMarkUtf8, StringComparison.Ordinal))
+        {
+            data = data.Remove(0, _byteOrderMarkUtf8.Length);
+        }
+
+        ParseXmlFile(data);
     }
 
     
@@ -41,7 +58,7 @@ public class FinalSceneGameController : MonoBehaviour
     }
 
 
-    //NEW TODO ABAJO: GUARDAR PUNTUACIÓN EN ARCHIVO XML
+    //GUARDAR PUNTUACIÓN EN ARCHIVO XML
 
     /*public void SaveByXML() {
 
@@ -88,7 +105,7 @@ public class FinalSceneGameController : MonoBehaviour
         Saves.Add(save);
         
 
-    XmlDocument xmlDocument = new XmlDocument();
+        XmlDocument xmlDocument = new XmlDocument();
 
         #region CreateXML elements
 
@@ -127,7 +144,7 @@ public class FinalSceneGameController : MonoBehaviour
 
     public void AddNewPlayerToXml(Save save)
     {
-        //CARGAMOS LA LISTA DE PLAYERS DEL DOCUMENTO -- REVISAR !!!!!!
+        //CARGAMOS LA LISTA DE PLAYERS DEL DOCUMENTO
         //Saves = LoadListFromXml();
 
         //CREAMOS UN NUEVO DOCUMENTO Y CARGAMOS EL EXISTENTE
@@ -167,7 +184,7 @@ public class FinalSceneGameController : MonoBehaviour
         saves.Save();
     }*/
 
-    private void LoadByXML()
+    /*private void LoadByXML()
     {
         if(File.Exists(Application.dataPath + "/dataxml.text"))
         {
@@ -183,9 +200,6 @@ public class FinalSceneGameController : MonoBehaviour
             save.playerScore = scorePoints;
 
             //TODO: ADD HERE SAME CODE AS ABOVE FOR PLAYER'S NAME
-            /*XmlNodeList score = xmlDocument.GetElementsByTagName("score");
-            int scorePoints = int.Parse(score[0].InnerText);
-            save.score = scorePoints;*/
 
             //Assign the saved data to the game real data
             finalSceneGameController.score = save.playerScore;
@@ -195,7 +209,7 @@ public class FinalSceneGameController : MonoBehaviour
         {
             Debug.Log("File not found!");
         }
-    }
+    }*/
 
     public static List<Save> LoadListFromXml()
     {
@@ -219,7 +233,7 @@ public class FinalSceneGameController : MonoBehaviour
 
     }
 
-    public void LoadByXml()
+    /*public void LoadByXml()
     {
         if (File.Exists(Application.dataPath + "/dataxml.text"))
         {
@@ -236,6 +250,25 @@ public class FinalSceneGameController : MonoBehaviour
         else
         {
             Debug.Log("FILE NOT FOUNDED. CANNOT BE LOADED.\n");
+        }
+    }*/
+
+    void ParseXmlFile(string xmlData)
+    {
+        string totVal = "";
+        XmlDocument xmlDoc = new XmlDocument();
+        //xmlDoc.Load(new StringReader(xmlData));
+        xmlDoc.Load(xmlData);
+
+        string xmlPathPattern = "//SavedPlayers/player";
+        XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
+        foreach (XmlNode node in myNodeList)
+        {
+            XmlNode name = node.FirstChild;
+            XmlNode score = name.NextSibling;
+
+            totVal += "Player:  " + name.InnerXml + "     Score:  " + score.InnerXml + "\n\n";
+            uiText.text = totVal;
         }
     }
 }
