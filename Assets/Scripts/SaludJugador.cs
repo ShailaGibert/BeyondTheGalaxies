@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaludJugador : MonoBehaviour
 {
-    public int maxHealth = 10;
+    public int maxHealth = 30;
     public int currentHealth;
 
     //PROBAR: instanciar las explosiones desde aqu�

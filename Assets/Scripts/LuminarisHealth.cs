@@ -7,7 +7,7 @@ public class LuminarisHealth : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
 
-    //PROBAR: instanciar las explosiones desde aquí
+    //PROBAR: instanciar las explosiones desde aquï¿½
     //public GameObject enemyExplosion;
     //public GameObject playerExplosion;
 

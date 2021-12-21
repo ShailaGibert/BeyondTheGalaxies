@@ -58,7 +58,7 @@ public class FinalSceneGameController : MonoBehaviour
     }
 
 
-    //GUARDAR PUNTUACIÓN EN ARCHIVO XML
+    //GUARDAR PUNTUACIï¿½N EN ARCHIVO XML
 
     /*public void SaveByXML() {
 
@@ -76,9 +76,9 @@ public class FinalSceneGameController : MonoBehaviour
         scoreElement.InnerText = save.playerScore.ToString();
         root.AppendChild(scoreElement);
 
-        //AÑADIR LO MISMO PARA EL NOMBRE DEL JUGADOR
+        //Aï¿½ADIR LO MISMO PARA EL NOMBRE DEL JUGADOR
 
-        //AÑADIR EL SAVE CREADO AL ARRAY
+        //Aï¿½ADIR EL SAVE CREADO AL ARRAY
         #endregion
 
         xmlDocument.AppendChild(root);
@@ -101,7 +101,7 @@ public class FinalSceneGameController : MonoBehaviour
     public void SaveByXML()
     {
         Save save = saveScore();
-        //AÑADIMOS EL SAVE CREADO AL ARRAY
+        //Aï¿½ADIMOS EL SAVE CREADO AL ARRAY
         Saves.Add(save);
         
 
@@ -113,11 +113,11 @@ public class FinalSceneGameController : MonoBehaviour
         XmlElement root = xmlDocument.CreateElement("SavedPlayers");
         //root.SetAttribute("FileName", "File_01");     
 
-        //CREAMOS LOS ELEMENTOS, CADA UNO DE LOS CUALES SERÁ UN PLAYER
+        //CREAMOS LOS ELEMENTOS, CADA UNO DE LOS CUALES SERï¿½ UN PLAYER
         XmlElement playerElement = xmlDocument.CreateElement("player");
         root.AppendChild(playerElement);
 
-        //AÑADIMOS EL NOMBRE DEL JUGADOR Y LA PUNTUACIÓN
+        //Aï¿½ADIMOS EL NOMBRE DEL JUGADOR Y LA PUNTUACIï¿½N
         XmlElement playerNameElement = xmlDocument.CreateElement("name");
         //playerNameElement.InnerText = save.player.ToString();
         playerElement.AppendChild(playerNameElement);
@@ -151,7 +151,7 @@ public class FinalSceneGameController : MonoBehaviour
         XmlDocument xmlDocument = new XmlDocument();
         xmlDocument.Load(Application.dataPath + "/dataxml.text");
 
-        //CREAMOS EL NUEVO PLAYER Y LO AÑADIMOS A LA LISTA DE PLAYERS CARGADA
+        //CREAMOS EL NUEVO PLAYER Y LO Aï¿½ADIMOS A LA LISTA DE PLAYERS CARGADA
         XmlElement playerElement = xmlDocument.CreateElement("player");
         
         XmlElement playerNameElement = xmlDocument.CreateElement("name");
@@ -262,11 +262,13 @@ public class FinalSceneGameController : MonoBehaviour
 
         string xmlPathPattern = "//SavedPlayers/player";
         XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
+        int mayor=0;
         foreach (XmlNode node in myNodeList)
-        {
+        {   
+            
             XmlNode name = node.FirstChild;
             XmlNode score = name.NextSibling;
-
+            
             totVal += "Player:  " + name.InnerXml + "     Score:  " + score.InnerXml + "\n\n";
             uiText.text = totVal;
         }

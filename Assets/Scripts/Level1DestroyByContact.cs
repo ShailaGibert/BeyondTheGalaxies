@@ -12,36 +12,51 @@ public class Level1DestroyByContact : MonoBehaviour
     public int scoreValue;
     private GameController gameController;
     private PlayerController bolt;
-    
-    
-
-    
-    
-    
+    public SaludJugador saludJugador;
     
     void Start(){
 
         GameObject gameControllerObject=GameObject.FindWithTag("Level1GameController");
         gameController=gameControllerObject.GetComponent<GameController>();
-      
-
-       
-
     }
     void OnTriggerEnter(Collider other)
     {   
         if (other.CompareTag("Boundary")) return;
-        Instantiate(enemyExplosion, transform.position, transform.rotation);
+        if (enemyExplosion != null)
+        {
+            Instantiate(enemyExplosion, transform.position, transform.rotation);
+        }
+        //Instantiate(enemyExplosion, transform.position, transform.rotation);
         
         if (other.CompareTag("Player"))
         {   
-            gameController.GameOver();
-            
-            
-            
-        }  
+            //gameController.GameOver();
+            saludJugador = GetComponent<SaludJugador>();
+            if (saludJugador != null)
+            {
+                saludJugador.TakeDamage(10);
+                Debug.Log(saludJugador.currentHealth);
+                Destroy(gameObject);
+
+
+            }
+            Debug.Log(saludJugador.currentHealth);
+
+            //Si la vida llega a cero
+            /*if (saludJugador.currentHealth==0.0)
+            {
+                
+                //Destroy(gameObject); //Se destruye la nave enemiga
+                gameController.GameOver();
+                //gameController.Winner();
+                //Time.timeScale = 0f;
+
+            }*/
+
+        }
+             
         gameController.AddScore(scoreValue);
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
         Destroy(gameObject);
         PlayerPrefs.SetFloat("score1", gameController.GetScore());
 
@@ -51,7 +66,7 @@ public class Level1DestroyByContact : MonoBehaviour
             gameController.Winner();
         }
         
-    
+
     }
     public void Update()
     {
