@@ -30,4 +30,10 @@ public class SaludJugador : MonoBehaviour
 
         }*/
     }
+
+    public void UpdatePlayerHealth(int health)
+    {
+        this.currentHealth = health;
+
+    }
 }
