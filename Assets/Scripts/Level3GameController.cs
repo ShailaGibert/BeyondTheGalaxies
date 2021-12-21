@@ -94,7 +94,7 @@ public class Level3GameController : MonoBehaviour
         winnerText.gameObject.SetActive(true);
         winner = true;
         
-        Debug.Log("He gando nivel3: "+score);
+        Debug.Log("He ganado nivel3: "+score);
 
         //PlayerPrefs.SetFloat("score3", GetScore());
 
