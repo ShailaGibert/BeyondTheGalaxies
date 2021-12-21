@@ -1,59 +1,10 @@
 <SavedPlayers>
   <player>
-    <name>Capitan Marmota</name>
-    <score>715</score>
+    <name>Debe ser primero</name>
+    <score>8000</score>
   </player>
   <player>
-    <name>Pepito</name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>Matrix</name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>El Trolas</name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>Harry Potter</name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>
-    </name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>
-    </name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>
-    </name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>
-    </name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>
-    </name>
-    <score>710</score>
-  </player>
-  <player>
-    <name>capitan marmota</name>
-    <score>715</score>
-  </player>
-  <player>
-    <name>capitan marmota</name>
-    <score>715</score>
-  </player>
-  <player>
-    <name>capitan marmota</name>
-    <score>715</score>
+    <name>Debe ser segundo</name>
+    <score>700</score>
   </player>
 </SavedPlayers>
