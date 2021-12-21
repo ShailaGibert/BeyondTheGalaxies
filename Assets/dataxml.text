@@ -5,6 +5,22 @@
   </player>
   <player>
     <name>Debe ser segundo</name>
-    <score>700</score>
+    <score>7000</score>
+  </player>
+  <player>
+    <name>Debe ser tercero</name>
+    <score>6000</score>
+  </player>
+  <player>
+    <name>Debe ser cuarto</name>
+    <score>5000</score>
+  </player>
+  <player>
+    <name>Debe ser quinto</name>
+    <score>4000</score>
+  </player>
+  <player>
+    <name>NO ENTRA EN RANKING</name>
+    <score>40</score>
   </player>
 </SavedPlayers>

@@ -52,10 +52,10 @@ public class Ranking : MonoBehaviour
             }
 
             //Giving it an arbitrary value
-            int maxValue = 0;
+            int indexOfScore = 0, maxValue = 0;
 
             //Looping for each position of the ranking
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 //Looping for each element in the list
                 foreach (int item in scoreList)
@@ -63,7 +63,7 @@ public class Ranking : MonoBehaviour
                     if (item > maxValue)
                     {
                         maxValue = item;
-                        int indexOfScore = scoreList.IndexOf(maxValue);
+                        indexOfScore = scoreList.IndexOf(maxValue);
 
                         switch (i)
                         {
@@ -78,7 +78,9 @@ public class Ranking : MonoBehaviour
                                 PlayerPrefs.SetInt("highscore2", maxValue);
                                 PlayerPrefs.SetString("highname2", nameList[indexOfScore]);
                                 Debug.Log(PlayerPrefs.GetInt("highscore2"));
+                                Debug.Log("Entra en el case 1");
                                 Debug.Log(PlayerPrefs.GetString("highname2"));
+                                Debug.Log("Sale del case 1");
                                 break;
                             case 2:
                                 PlayerPrefs.SetInt("highscore3", maxValue);
@@ -99,11 +101,14 @@ public class Ranking : MonoBehaviour
                                 Debug.Log(PlayerPrefs.GetString("highname5"));
                                 break;                            
                         }
-                        //Removing the max values found to iterate again without them
-                        scoreList.Remove(maxValue);
-                        nameList.RemoveAt(indexOfScore);
+                        //Debug.Log("Salimos del Switch y del if");
                     }
                 }
+                //Removing the max values found to iterate again without them
+                nameList.RemoveAt(indexOfScore);
+                scoreList.Remove(maxValue);
+                maxValue = 0;
+                //Debug.Log("Estamos en la vuelta del i " + i);
             }
         }
         else
