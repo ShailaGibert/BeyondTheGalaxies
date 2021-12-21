@@ -1,26 +1,46 @@
 <SavedPlayers>
   <player>
-    <name>Debe ser primero</name>
+    <name>UNO</name>
     <score>8000</score>
   </player>
   <player>
-    <name>Debe ser segundo</name>
+    <name>DOS</name>
     <score>7000</score>
   </player>
   <player>
-    <name>Debe ser tercero</name>
+    <name>TRES</name>
     <score>6000</score>
   </player>
   <player>
-    <name>Debe ser cuarto</name>
+    <name>CUATRO</name>
     <score>5000</score>
   </player>
   <player>
-    <name>Debe ser quinto</name>
+    <name>CINCO</name>
     <score>4000</score>
   </player>
   <player>
     <name>NO ENTRA EN RANKING</name>
     <score>40</score>
+  </player>
+  <player>
+    <name>QS4</name>
+    <score>50000</score>
+  </player>
+  <player>
+    <name>Shaila Gibert</name>
+    <score>715</score>
+  </player>
+  <player>
+    <name>Shaila Gibert</name>
+    <score>715</score>
+  </player>
+  <player>
+    <name>Shaila Gibert</name>
+    <score>715</score>
+  </player>
+  <player>
+    <name>Shaila Gibert</name>
+    <score>715</score>
   </player>
 </SavedPlayers>
