@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2197724108079555911}
   - component: {fileID: 2197724108079555910}
   - component: {fileID: 2197724108079555904}
-  - component: {fileID: 6845157043347886548}
+  - component: {fileID: 1751221765}
   m_Layer: 0
   m_Name: LuminarisBolt
   m_TagString: Enemy
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
---- !u!114 &6845157043347886548
+--- !u!114 &1751221765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,9 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2197724108079555908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1b08e376dd2494fbcddec8bb0cb594, type: 3}
+  m_Script: {fileID: 11500000, guid: fc21e135032960a4981f2b2455c1abe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyExplosion: {fileID: 0}
   playerExplosion: {fileID: 100006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
-  scoreValue: 0

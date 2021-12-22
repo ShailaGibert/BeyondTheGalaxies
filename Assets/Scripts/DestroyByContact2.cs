@@ -6,6 +6,7 @@ public class DestroyByContact2 : MonoBehaviour
 {
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
+    private SaludJugador saludJugador;
 
     public int scoreValue;
 
@@ -14,7 +15,10 @@ public class DestroyByContact2 : MonoBehaviour
 
     void Start()
     {
-
+        GameObject player = GameObject.FindWithTag("Player");
+        //Debug.Log(player);
+        saludJugador = player.GetComponentInChildren<SaludJugador>();
+        //Debug.Log(saludJugador);
         level2GameController = GameObject.FindWithTag("Level2GameController").GetComponent<Level2GameController>();
     }
 
@@ -29,14 +33,46 @@ public class DestroyByContact2 : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            level2GameController.GameOver();
+            //Debug.Log(saludJugador.currentHealth);
+            //gameController.GameOver();
+            //saludJugador = GetComponent<SaludJugador>();
+            if (saludJugador.currentHealth != 0.0)
+            {
+                //saludJugador.TakeDamage(10);
+                saludJugador.currentHealth -= 10;
+                Debug.Log(saludJugador.currentHealth);
+                saludJugador.UpdatePlayerHealth(saludJugador.currentHealth);
+                Destroy(gameObject);
+
+
+            }
+
+            //Si la vida llega a cero
+            if (saludJugador.currentHealth == 0.0)
+            {
+
+                Destroy(gameObject); //Se destruye el asteroide
+                Destroy(other.gameObject); //Se destruye la nave del jugador
+                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+                level2GameController.GameOver();
+                //gameController.Winner();
+                //Time.timeScale = 0f;
+
+            }
+            //Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            //level2GameController.GameOver();
         }
 
+        if (other.CompareTag("Bolt"))
+        {
+            level2GameController.AddScore(scoreValue);
+            Destroy(gameObject);
+            Destroy(other.gameObject); //Se destruye el disparo (Bolt)
+        }
 
-        level2GameController.AddScore(scoreValue);
-        Destroy(other.gameObject);
-        Destroy(gameObject);
+        //level2GameController.AddScore(scoreValue);
+        //Destroy(other.gameObject);
+        //Destroy(gameObject);
 
         //GameState.gameState.score = level2GameController.GetScore();
         //GameState.gameState.SaveData();
@@ -46,7 +82,7 @@ public class DestroyByContact2 : MonoBehaviour
         
         //Debug.Log(level2GameController.GetScore());
         
-        if (level2GameController.GetScore() >= 30)
+        if (level2GameController.GetScore() >= 100)
         {
             level2GameController.Winner();
         }

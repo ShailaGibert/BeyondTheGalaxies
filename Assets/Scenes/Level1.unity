@@ -839,26 +839,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3010124720885842064, guid: d5de78413f31305039f5d05800275ac6,
-        type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010124720885842064, guid: d5de78413f31305039f5d05800275ac6,
-        type: 3}
-      propertyPath: m_MaxValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010124720885842064, guid: d5de78413f31305039f5d05800275ac6,
-        type: 3}
-      propertyPath: m_WholeNumbers
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010124720885842065, guid: d5de78413f31305039f5d05800275ac6,
-        type: 3}
-      propertyPath: fillImage
-      value: 
-      objectReference: {fileID: 979202880}
     - target: {fileID: 3010124720885842065, guid: d5de78413f31305039f5d05800275ac6,
         type: 3}
       propertyPath: playerHealth
@@ -973,11 +953,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3010124721834996446, guid: d5de78413f31305039f5d05800275ac6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.099998474
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5de78413f31305039f5d05800275ac6, type: 3}
@@ -1417,18 +1392,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &979202880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3010124719932918251, guid: d5de78413f31305039f5d05800275ac6,
-    type: 3}
-  m_PrefabInstance: {fileID: 643293497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1348844293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,7 +1708,7 @@ MonoBehaviour:
   hazardCount: 10
   spawnWait: 1
   startWait: 1
-  WaveWait: 4
+  WaveWait: 3
   scoreText: {fileID: 1681471259}
   restartGameObject: {fileID: 1477983390}
   gameOverGameObject: {fileID: 1568882038}

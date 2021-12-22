@@ -35,9 +35,11 @@ public class Level1DestroyByContact : MonoBehaviour
         {
             Instantiate(enemyExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
+            Destroy(other.gameObject); //Se destruye el disparo (Bolt)
+            gameController.AddScore(scoreValue);
         }
 
-            if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Debug.Log(saludJugador.currentHealth);
             //gameController.GameOver();
@@ -68,7 +70,7 @@ public class Level1DestroyByContact : MonoBehaviour
 
         }
              
-        gameController.AddScore(scoreValue);
+        //gameController.AddScore(scoreValue);
         //Destroy(other.gameObject);
         //Destroy(gameObject);
         PlayerPrefs.SetFloat("score1", gameController.GetScore());
