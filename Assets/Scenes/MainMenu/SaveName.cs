@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class SaveName : MonoBehaviour
 {
     TouchScreenKeyboard teclado;
-    public Text txt;
-    public string Pseudo;
     public InputField textBox;
 
     public void OpenKeyboard()
@@ -28,19 +26,30 @@ public class SaveName : MonoBehaviour
         {
             if (teclado.done)
             {
-                Pseudo = teclado.text;
-                txt.text = Pseudo;
+                PlayerPrefs.SetString("name", textBox.text);
+                Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
                 teclado = null;
             }
         }
-        clickSaveButton();
     }
 
+    //public void OpenKeyboard2()
+    //{
+    //    if (TouchScreenKeyboard.visible == false && teclado != null)
+    //    {
+    //        if (teclado.done)
+    //        {
+    //            textBox.text = teclado.text;
+    //            teclado = null;
+    //        }
+    //    }
+    //}
 
-    public void clickSaveButton()
-    {
-        PlayerPrefs.SetString("name", textBox.text);
-        Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
-    }
+    //public void clickSaveButton()
+    //{
+
+    //    PlayerPrefs.SetString("name", textBox.text);
+    //    Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
+    //}
 
 }
