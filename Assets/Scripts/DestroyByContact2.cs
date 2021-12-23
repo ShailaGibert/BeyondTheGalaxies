@@ -82,7 +82,7 @@ public class DestroyByContact2 : MonoBehaviour
         
         //Debug.Log(level2GameController.GetScore());
         
-        if (level2GameController.GetScore() >= 100)
+        if (level2GameController.GetScore() >= 400)
         {
             level2GameController.Winner();
         }
