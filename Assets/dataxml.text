@@ -73,4 +73,8 @@
     <name>Shaila</name>
     <score>710</score>
   </player>
+  <player>
+    <name>la</name>
+    <score>600</score>
+  </player>
 </SavedPlayers>

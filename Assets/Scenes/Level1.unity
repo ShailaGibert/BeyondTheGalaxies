@@ -2670,7 +2670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1991353245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2791,6 +2791,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 727890097}
+    - target: {fileID: 54088268673917021, guid: 0c08b805361a4514db726c3075b05845,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 54088268749181604, guid: 0c08b805361a4514db726c3075b05845,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3272,6 +3277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1693590872}
     m_Modifications:
+    - target: {fileID: 2029155949887229555, guid: c1d147d56af498247a5a06755205c330,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2029155949908457843, guid: c1d147d56af498247a5a06755205c330,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3386,6 +3396,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029155949908457869, guid: c1d147d56af498247a5a06755205c330,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d147d56af498247a5a06755205c330, type: 3}
