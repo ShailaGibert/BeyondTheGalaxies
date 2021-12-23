@@ -45,11 +45,11 @@ public class SaveName : MonoBehaviour
     //    }
     //}
 
-    //public void clickSaveButton()
-    //{
+    public void clickSaveButton()
+    {
 
-    //    PlayerPrefs.SetString("name", textBox.text);
-    //    Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
-    //}
+        PlayerPrefs.SetString("name", textBox.text);
+        Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
+    }
 
 }
