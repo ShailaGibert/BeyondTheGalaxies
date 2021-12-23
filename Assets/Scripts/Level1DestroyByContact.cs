@@ -9,6 +9,7 @@ public class Level1DestroyByContact : MonoBehaviour
 {
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
+    public GameObject playerSmallExplosion;
     public int scoreValue;
     private GameController gameController;
     private PlayerController bolt;
@@ -41,14 +42,15 @@ public class Level1DestroyByContact : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            Debug.Log(saludJugador.currentHealth);
+            //Debug.Log(saludJugador.currentHealth);
             //gameController.GameOver();
             //saludJugador = GetComponent<SaludJugador>();
             if (saludJugador.currentHealth != 0.0)
             {
                 //saludJugador.TakeDamage(10);
                 saludJugador.currentHealth -= 10;
-                Debug.Log(saludJugador.currentHealth);
+                Instantiate(playerSmallExplosion, other.transform.position, other.transform.rotation);
+                //Debug.Log(saludJugador.currentHealth);
                 saludJugador.UpdatePlayerHealth(saludJugador.currentHealth);
                 Destroy(gameObject);
 

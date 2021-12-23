@@ -173,3 +173,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerExplosion: {fileID: 100006, guid: 808e73d863fcde3499fd5301563ffd3d, type: 3}
+  playerSmallExplosion: {fileID: 100014, guid: a57a6829db3568c4d9bdc37e9e63c017, type: 3}

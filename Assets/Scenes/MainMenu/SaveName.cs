@@ -22,6 +22,14 @@ public class SaveName : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.touchCount > 0 && teclado == null)
+        {
+            Debug.Log("Input touched!");
+            //TouchScreenKeyboard.hideInput = true;
+            teclado = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NamePhonePad, false, false, false, true, "");
+        }
+        
+
         if (TouchScreenKeyboard.visible == false && teclado != null)
         {
             if (teclado.done)
@@ -32,6 +40,8 @@ public class SaveName : MonoBehaviour
             }
         }
     }
+
+
 
     //public void OpenKeyboard2()
     //{

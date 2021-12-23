@@ -6,6 +6,7 @@ public class DestroyByContact2 : MonoBehaviour
 {
     public GameObject enemyExplosion;
     public GameObject playerExplosion;
+    public GameObject playerSmallExplosion;
     private SaludJugador saludJugador;
 
     public int scoreValue;
@@ -40,7 +41,8 @@ public class DestroyByContact2 : MonoBehaviour
             {
                 //saludJugador.TakeDamage(10);
                 saludJugador.currentHealth -= 10;
-                Debug.Log(saludJugador.currentHealth);
+                Instantiate(playerSmallExplosion, other.transform.position, other.transform.rotation);
+                //Debug.Log(saludJugador.currentHealth);
                 saludJugador.UpdatePlayerHealth(saludJugador.currentHealth);
                 Destroy(gameObject);
 

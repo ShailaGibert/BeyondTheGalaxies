@@ -6,6 +6,7 @@ public class LuminarisBoltDestroyByContact : MonoBehaviour
 {
     private Level3GameController level3GameController;
     public GameObject playerExplosion;
+    public GameObject playerSmallExplosion;
     private SaludJugador saludJugador;
 
     void Start()
@@ -32,6 +33,7 @@ public class LuminarisBoltDestroyByContact : MonoBehaviour
                 saludJugador.UpdatePlayerHealth(saludJugador.currentHealth);
                 Destroy(gameObject); //Se destruye el disparo enemigo
                 //TODO: PLAY A SOUND WHEN THE PLAYER GETS HIT
+                Instantiate(playerSmallExplosion, other.transform.position, other.transform.rotation);
             }
 
             //Si la vida llega a cero
