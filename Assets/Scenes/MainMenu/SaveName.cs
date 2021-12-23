@@ -16,7 +16,7 @@ public class SaveName : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        //teclado = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
     }
 
     // Update is called once per frame
@@ -25,8 +25,10 @@ public class SaveName : MonoBehaviour
         if (Input.touchCount > 0 && teclado == null)
         {
             Debug.Log("Input touched!");
+            Debug.Log(TouchScreenKeyboard.visible);
             //TouchScreenKeyboard.hideInput = true;
             teclado = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NamePhonePad, false, false, false, true, "");
+            //teclado = new TouchScreenKeyboard("", TouchScreenKeyboardType.NamePhonePad, false, false, false, true, "", 20);
         }
         
 
@@ -36,7 +38,7 @@ public class SaveName : MonoBehaviour
             {
                 PlayerPrefs.SetString("name", textBox.text);
                 Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
-                teclado = null;
+                //teclado = null;
             }
         }
     }
