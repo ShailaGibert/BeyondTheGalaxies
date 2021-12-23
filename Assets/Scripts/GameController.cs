@@ -115,6 +115,8 @@ public class GameController : MonoBehaviour
     }
     public void GameOver(){
 
+        Time.timeScale = 0f;
+
         gameOverGameObject.SetActive(true);
         gameOver=true;
     }public int GetScore(){
@@ -124,6 +126,8 @@ public class GameController : MonoBehaviour
 
     public void Winner()
     {
+        Time.timeScale = 0f;
+
         winnerMenuUI.SetActive(true);
         //Time.timeScale = 0f;
 
