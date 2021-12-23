@@ -5,38 +5,40 @@ using UnityEngine.UI;
 
 public class SaveName : MonoBehaviour
 {
+    TouchScreenKeyboard teclado;
+    public Text txt;
+    public string Pseudo;
     public InputField textBox;
-    public Text Number0Text; // Mostrar contenido de entrada
 
-    private TouchScreenKeyboard keyboard = null;
+    public void OpenKeyboard()
+    {
+        teclado = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+    }
+
     // Use this for initialization
     void Start()
     {
-        Btn_NewName();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (keyboard != null)
+        if (TouchScreenKeyboard.visible == false && teclado != null)
         {
-            if (keyboard.done)
+            if (teclado.done)
             {
-                Number0Text.text = keyboard.text;
-                keyboard = null;
+                Pseudo = teclado.text;
+                txt.text = Pseudo;
+                teclado = null;
             }
         }
-    }
-
-    public void Btn_NewName()
-    {
-        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+        clickSaveButton();
     }
 
 
     public void clickSaveButton()
     {
-        Btn_NewName();
         PlayerPrefs.SetString("name", textBox.text);
         Debug.Log("Your name is " + PlayerPrefs.GetString("name"));
     }
