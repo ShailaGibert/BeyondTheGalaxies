@@ -36,7 +36,6 @@ public class Level3DestroyByContact : MonoBehaviour
         {
             //Debug.Log(saludJugador.currentHealth);
             //gameController.GameOver();
-            //saludJugador = GetComponent<SaludJugador>();
             if (saludJugador.currentHealth != 0.0)
             {
                 //saludJugador.TakeDamage(10);
@@ -56,13 +55,9 @@ public class Level3DestroyByContact : MonoBehaviour
                 Destroy(other.gameObject); //Se destruye la nave del jugador
                 Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
                 level3GameController.GameOver();
-                //gameController.Winner();
                 //Time.timeScale = 0f;
 
             }
-
-            //Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            //level3GameController.GameOver();
         }
 
         //Si le alcanza un disparo del jugador
@@ -89,9 +84,6 @@ public class Level3DestroyByContact : MonoBehaviour
             }
 
         }
-
-        //level3GameController.AddScore(scoreValue);
-        //Destroy(other.gameObject); //Se destruye el jugador
 
         //GameState.gameState.score = level3GameController.GetScore();
         //GameState.gameState.SaveData();
