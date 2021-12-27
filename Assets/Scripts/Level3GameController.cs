@@ -8,7 +8,7 @@ public class Level3GameController : MonoBehaviour
     public GameObject hazard;
     public Vector3 spawnValues;
 
-    private int score;
+    public int score;
     public Text scoreText;
 
     //public Text restartText;

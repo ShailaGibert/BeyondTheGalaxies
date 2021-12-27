@@ -76,8 +76,9 @@ public class Level3DestroyByContact : MonoBehaviour
             //Si la vida llega a cero
             if (enemyHealth.currentHealth == 0.0)
             {
-                
-                Destroy(gameObject); //Se destruye la nave enemiga
+
+                //Destroy(gameObject); //Se destruye la nave enemiga
+                DestroyEnemyAfterDeath(gameObject);
                 level3GameController.Winner();
                 //Time.timeScale = 0f;
 
@@ -88,5 +89,11 @@ public class Level3DestroyByContact : MonoBehaviour
         //GameState.gameState.score = level3GameController.GetScore();
         //GameState.gameState.SaveData();
         PlayerPrefs.SetFloat("score3", level3GameController.GetScore());
+    }
+
+    public void DestroyEnemyAfterDeath(GameObject gameObject)
+    {
+        Destroy(gameObject); //Se destruye la nave enemiga
+        gameObject.SetActive(false);
     }
 }

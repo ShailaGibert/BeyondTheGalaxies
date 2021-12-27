@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,5 +30,10 @@ public class LuminarisHealth : MonoBehaviour
             // Show GameOver screen
 
         }*/
+    }
+
+    public static implicit operator LuminarisHealth(double v)
+    {
+        throw new NotImplementedException();
     }
 }
